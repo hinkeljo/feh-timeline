@@ -3,7 +3,7 @@ import { ref, onMounted, type Ref } from "vue";
 import { Event } from "./classes/Event";
 import { EventData } from "./classes/EventData";
 import ButtonToday from "./components/ButtonToday.vue";
-import Timeline from "./components/Timeline.vue";
+import AppTimeline from "./components/AppTimeline.vue";
 import ButtonPanel from "./components/ButtonPanel.vue";
 import AppHeader from "./components/AppHeader.vue";
 
@@ -29,7 +29,7 @@ function scrollToCurrentDate() {
   <header>
   </header>
   <main class="main">
-    <Timeline ref="timeline" :eventdata="eventData"/>
+    <AppTimeline ref="timeline" :eventdata="eventData"/>
     <ButtonPanel>
       <ButtonToday @click="scrollToCurrentDate()"></ButtonToday>
     </ButtonPanel>
