@@ -29,6 +29,7 @@ function scrollToCurrentDate() {
   <header>
   </header>
   <main class="main">
+    <AppHeader/>
     <AppTimeline ref="timeline" :eventdata="eventData"/>
     <ButtonPanel>
       <ButtonToday @click="scrollToCurrentDate()"></ButtonToday>

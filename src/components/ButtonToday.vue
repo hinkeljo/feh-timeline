@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="button">
+    <div class="button clickable">
         Today
     </div>
 </template>
