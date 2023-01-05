@@ -13,6 +13,8 @@ export class EventData {
       event.start = newStart; 
       event.end = newEnd; 
     });
+    // sort by start date
+    events.sort((a, b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
     // add events
     this._eventList = events;  
   }
@@ -52,7 +54,6 @@ export class EventData {
     });
   }
   
-  // TODO: extract new class for data container
   getRows(): {event: Event, offsetDays: number}[][] {
     let rows: {event: Event, offsetDays: number}[][] = [[]]; 
     this._eventList.forEach((event, index) => {
