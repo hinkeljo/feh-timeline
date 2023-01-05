@@ -60,7 +60,7 @@
     <div class="spacer" v-bind:style="style_spacer"></div>
     <div class="eventcard" v-bind:style="style_card">
       <!--div v-if="now / 1000 < event.start" class="timer">{{difference}}</div-->
-      <div class="namefield">{{ event.name }}</div>
+      <div class="namefield sticky">{{ event.name }}</div>
       <!--div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer">{{difference}}</div-->
     </div>
   </div>
@@ -103,5 +103,11 @@
     color: orange;
     padding: 2px 4px 2px 4px;
     z-index: 2;
+  }
+
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
   }
 </style>
