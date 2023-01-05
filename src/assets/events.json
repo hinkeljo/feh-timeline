@@ -1,14 +1,1 @@
-{
-    "events": [
-        {
-            "name": "Test 1", 
-            "start": 1670655600, 
-            "end": 1671951600 
-        }, 
-        {
-            "name": "Test 2", 
-            "start": 1671865200, 
-            "end": 1672902000
-        }
-    ]
-}
+[{"name":"Summoner Duels S","start":1671606000,"end":1671951600},{"name":"Forging Bonds: Beyond Control","start":1672642800,"end":1673334000},{"name":"Lost Lore","start":1672729200,"end":1675148400},{"name":"Heroes Journey","start":1672902000,"end":1673247600},{"name":"Pawns of Loki","start":1674975600,"end":1675148400},{"name":"GHB Revival: Yenfay","start":1672383600,"end":1672988400},{"name":"BHB Revival: Silvia & Erinys","start":1672988400,"end":1673593200},{"name":"Tempest Trials +","start":1672470000,"end":1673334000},{"name":"Summoner Duels R","start":1672815600,"end":1673161200},{"name":"Green Hostiles Quests","start":1672556400,"end":1675148400},{"name":"Legendary Hero Summoning Event","start":1671519600,"end":1673247600},{"name":"New Heroes Revival: Beyond Control","start":1672642800,"end":1673334000},{"name":"Special Heroes","start":1672470000,"end":1673506800}]

@@ -1,26 +1,28 @@
 <script setup lang="ts">
-import { ref, onMounted, type Ref } from "vue";
+import { ref } from "vue";
 import { Event } from "./classes/Event";
 import { EventData } from "./classes/EventData";
-import ButtonToday from "./components/ButtonToday.vue";
+import AppButton from "./components/AppButton.vue";
 import AppTimeline from "./components/AppTimeline.vue";
 import ButtonPanel from "./components/ButtonPanel.vue";
 import AppHeader from "./components/AppHeader.vue";
+import json from "./assets/events.json";
 
-const eventData: EventData = new EventData(
-  [
-    new Event('Testing 1', 1670655600, 1671951600),
-    new Event('Testing 2', 1671865200, 1672902000),
-    new Event('Testing 3', 1671865200, 1672988400),
-    new Event('Testing 4', 1672902000, 1681951600)
-  ]
-);
+const eventData: EventData = new EventData(createEventList());
 
 const timeline = ref(); 
 
 function scrollToCurrentDate() {
   if(timeline.value == null) return; 
   timeline.value.scrollToCurrentDate();
+}
+
+function createEventList(): Event[] {
+  const eventList: Event[] = []; 
+  json.forEach((event) => {
+    eventList.push(new Event(event.name, event.start, event.end));
+  });
+  return eventList; 
 }
 
 </script>
@@ -32,7 +34,7 @@ function scrollToCurrentDate() {
     <AppHeader/>
     <AppTimeline ref="timeline" :eventdata="eventData"/>
     <ButtonPanel>
-      <ButtonToday @click="scrollToCurrentDate()"></ButtonToday>
+      <AppButton label="Today" @click="scrollToCurrentDate()"/>
     </ButtonPanel>
   </main>
 </template>

@@ -19,6 +19,10 @@ export class Event {
         return this._start; 
     }
 
+    set name(name: string) {
+        this._name = name; 
+    }
+
     set start(start: number) {
         this._start = start; 
     }

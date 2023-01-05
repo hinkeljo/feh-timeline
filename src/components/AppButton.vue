@@ -1,9 +1,12 @@
 <script setup lang="ts">
+    const props = defineProps<{
+        label: string,
+    }>();
 </script>
 
 <template>
     <div class="button clickable">
-        Today
+        {{label}}
     </div>
 </template>
 
@@ -21,5 +24,8 @@
 
         font-size: 18px;
         font-weight: bold;
+
+        display: flex;
+        justify-content: center;
     }
 </style>

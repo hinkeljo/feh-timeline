@@ -19,6 +19,7 @@
     let width: number = props.event.getLengthInDays() * 48; 
     return {
       'width': width + 'px',
+      'max-width': width + 'px'
     };
   });
 
@@ -56,10 +57,9 @@
   <div class="eventcard-container">
     <div class="spacer" v-bind:style="style_spacer"></div>
     <div class="eventcard" v-bind:style="style_card">
-      <div v-if="now / 1000 < event.start" class="timer">{{difference}}</div>
+      <!--div v-if="now / 1000 < event.start" class="timer">{{difference}}</div-->
       <div class="namefield">{{ event.name }}</div>
-      <div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer">{{difference}}</div>
-      <div v-if="now / 1000 > event.end" class="timer">It's over</div>
+      <!--div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer">{{difference}}</div-->
     </div>
   </div>
 </template>
@@ -68,6 +68,8 @@
   .eventcard-container {
     display: flex;
     flex-direction: row;
+    height: 54px;
+    max-height: 54px;
   }
 
   .spacer {

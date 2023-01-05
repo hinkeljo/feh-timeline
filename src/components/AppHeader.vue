@@ -1,4 +1,6 @@
 <script setup lang="ts">
+    import CustomDataModal from "./CustomDataModal.vue";
+
     function openCreateMenu(): void {
         console.log("Opening menu to create event data..."); 
     }
@@ -6,15 +8,16 @@
 
 <template>
     <div class="app-header">
-        <div class="left">FEH Timeline</div>
+        <div class="text-heading">FEH Timeline</div>
         <div class="right">
             <div 
-             class="create clickable" 
+             class="create text-subheading clickable" 
              @click="openCreateMenu()">
                 Create data
             </div>
         </div>
     </div>
+    <!--CustomDataModal></CustomDataModal-->
 </template>
 
 <style scoped>
@@ -30,16 +33,7 @@
         padding-right: 12px;
     }
 
-    .left {
-        font-size: 18px;
-        font-weight: bold;
-        color: black;
-    }
-
     .create {
-        font-size: 12px;
-        font-weight: bold;
-        color: black;
         text-decoration: underline;
     }
 </style>
