@@ -6,11 +6,10 @@
         event: Event,
     }>();
 
-    const today: Date = new Date();
-
     const nameInput = ref(); 
     const startInput = ref(); 
     const endInput = ref(); 
+    const categoryInput = ref(); 
 
     function setName(): void {
         let name = nameInput.value.value;
@@ -20,15 +19,18 @@
     function setStart(): void {
         let start = startInput.value.value; 
         let timestamp =  dateToTimestamp(start);
-        console.log(timestamp);
         props.event.start = timestamp; 
     }
 
     function setEnd(): void {
         let end = endInput.value.value;
         let timestamp =  dateToTimestamp(end);
-        console.log(timestamp);
         props.event.end = timestamp; 
+    }
+
+    function setCategory(): void {
+        let name = categoryInput.value.value;
+        props.event.name = name; 
     }
 
     function dateToTimestamp(date: string): number {
@@ -68,6 +70,10 @@
                 <div class="text-subheading">End</div>
                 <input type="date" ref="endInput" @input="setEnd">
             </div>
+            <div class="input-field">
+                <div class="text-subheading">Category</div>
+                <input type="text" ref="categoryInput" value="" @input="setCategory">
+            </div>
         </div>
     </div>
 </template>
@@ -77,7 +83,6 @@
         border-radius: 4px;
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
         gap: 12px;
         padding: 6px;
@@ -87,12 +92,14 @@
     .inputs {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 6px;
     }
 
     .input-field  {
         display: flex;
         flex-direction: column;
+        flex: 1;
         gap: 2px;
     }
 

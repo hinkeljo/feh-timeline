@@ -26,6 +26,11 @@ export class EventData {
     return this.calculateMonths(); 
   }
 
+  addEvent(event: Event) {
+    this._eventList.push(event);
+    this._eventList.sort((a, b) => (a.start > b.start) ? 1 : ((b.start > a.start) ? -1 : 0));
+  }
+
   // TODO: increase performance by caching months
   calculateMonths(): Month[] {
     let months: Month[] = []; 

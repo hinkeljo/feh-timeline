@@ -1,32 +1,59 @@
 <script setup lang="ts">
-import { onMounted, computed } from "vue";
+import { onMounted, computed, type ComputedRef } from "vue";
 import TimelineMonth from "./TimelineMonth.vue";
 import EventCard from "./EventCard.vue";
 import { EventData } from "@/classes/EventData";
 import DateIndicator from "./DateIndicator.vue";
 import { Month } from "@/classes/Month";
+import type { EventCategory } from "@/classes/EventCategory";
 
 onMounted(() => {
+  console.log(months.value);
   scrollToCurrentDate();
 });
 
 const props = defineProps<{
-  eventdata: EventData;
+  eventdata: EventCategory[];
 }>();
 
 defineExpose({
   scrollToCurrentDate,
 });
 
-const currentOffset = computed(() => {
+const currentOffset: ComputedRef<number> = computed(() => {
   let now: number = Date.now();
   // adjust for milliseconds
   let nowTimestamp: number = Math.floor(now / 1000);
+  let firstMonth: Month = months.value[0];
+  if(firstMonth == undefined) {
+    return 0; 
+  }
   let start = Month.getTimestampForMonth(
-    props.eventdata.months[0].index,
-    props.eventdata.months[0].year
+    firstMonth.index,
+    firstMonth.year
   );
   return EventData.calculateDayOffset(start, nowTimestamp);
+});
+
+const months: ComputedRef<Month[]> = computed(() => {
+  console.log("calculating months...");
+  let result: Month[] = []; 
+  // add all unqiue months
+  console.log(props.eventdata);
+  props.eventdata.forEach((entry) => {
+    entry.events.months.forEach((month) => {
+      if(result.filter(m => m.index == month.index && m.year == month.year).length == 0) {
+        console.log("adding month " + month.index + " of " + month.year);
+        result.push(month);
+      }
+    });
+  });
+  // sort months
+  return result.sort((a, b) => {
+    if(a.year > b.year) return 1; 
+    else if(a.year < b.year) return -1; 
+    else return a.index > b.index ? 1 : -1;
+  }); 
 });
 
 function scrollToCurrentDate(): void {
@@ -50,18 +77,20 @@ function scrollToCurrentDate(): void {
     <div class="timeline-container" id="timelineContainer">
       <div class="timeline">
         <TimelineMonth
-          v-for="month in eventdata.months"
+          v-for="month in months"
           :name="month.name"
           :days="month.days"
         />
       </div>
-      <div class="eventlist">
-        <div v-for="(row, index) in eventdata.getRows()" class="eventrow">
-          <EventCard
-            v-for="(element, index) in row"
-            :event="element.event"
-            :offset="element.offsetDays"
-          />
+      <div class="category-list">
+        <div v-for="(category, index) in eventdata" class="eventlist">
+          <div v-for="(row, index) in category.events.getRows()" class="eventrow">
+            <EventCard
+              v-for="(element, index) in row"
+              :event="element.event"
+              :offset="element.offsetDays"
+            />
+          </div>
         </div>
         <DateIndicator :offsetDays="currentOffset"> </DateIndicator>
       </div>

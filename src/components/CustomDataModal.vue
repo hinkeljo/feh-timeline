@@ -4,17 +4,20 @@
     import { Event } from '@/classes/Event';
     import AppButton from "./AppButton.vue";
 
-    const events: Event[] = reactive([]);
+    const events: {
+        category: string,
+        event: Event
+    }[] = reactive([]);
 
     function addEvent(): void {
         let newEvent: Event = new Event("New Event", 0, 0); 
-        events.push(newEvent);
+        events.push({
+            category: "", 
+            event: newEvent
+        });
     }
 
     function exportEvents(): void {
-        events.forEach((event) => {
-            console.log(event.name);
-        });
         downloadJSON();
     }
 
@@ -40,7 +43,7 @@
                 <div class="event-container">
                     <CustomDataEvent 
                     v-for="(event, index) in events" 
-                    :event="event"/>
+                    :event="event.event"/>
                 </div>
                 <div class="add-button center text-subheading clickable" @click="addEvent()" >
                     <img class="add-icon" src="./icons/icon_add.svg" />
@@ -88,11 +91,9 @@
         background-color: white;
         border-radius: 24px;
         padding: 18px;
-
         display: flex;
         flex-direction: column;
         gap: 12px;
-
         max-width: 80%;
         max-height: 80%;
     }
@@ -110,5 +111,6 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
+        overflow-y: auto;
     }
 </style>
