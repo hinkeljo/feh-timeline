@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <CustomDataModal v-if="modalActive"/>
+    <CustomDataModal v-if="modalActive" @close="modalActive = false"/>
 </template>
 
 <style scoped>

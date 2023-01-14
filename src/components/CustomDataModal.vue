@@ -33,8 +33,11 @@
     <div class="modal">
         <div class="modal-background">
             <div class="modal-card">
-                <div class="text-heading">Create event data</div>
-                <div class="event-container scrollable-y">
+                <div class="modal-header">
+                    <div class="text-heading center-v">Create event data</div>
+                    <img src="../assets/icon_close.svg" class="close-button" @click="$emit('close')"/>
+                </div>
+                <div class="event-container">
                     <CustomDataEvent 
                     v-for="(event, index) in events" 
                     :event="event"/>
@@ -66,6 +69,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .modal-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .close-button {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
     }
 
     .modal-card {

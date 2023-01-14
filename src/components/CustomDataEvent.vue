@@ -74,7 +74,6 @@
 
 <style scoped>
     .custom-event-card {
-        background-color: red;
         border-radius: 4px;
         display: flex;
         flex-direction: row;
@@ -82,6 +81,7 @@
         justify-content: space-between;
         gap: 12px;
         padding: 6px;
+        background: lightgray;
     }
 
     .inputs {
