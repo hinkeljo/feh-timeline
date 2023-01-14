@@ -95,6 +95,7 @@
     font-size: 18px;
     font-weight: bold;
     z-index: 2;
+    background-color: rgba(255, 255, 255, 0.75);
   }
 
   .timer {

@@ -47,7 +47,8 @@
         let pst = timestamp.getTime() / 1000;
 
         // apply 8 hours offset from PST to UTC
-        let utc = pst + (1 * 60 * 60 * 8);
+        // and 1 day offset from twitter calendar
+        let utc = pst + (1 * 60 * 60 * 8) + (1 * 60 * 60 * 24);
         return utc; 
     }
 </script>

@@ -1,8 +1,11 @@
 <script setup lang="ts">
+    import { ref, type Ref } from "@vue/reactivity";
     import CustomDataModal from "./CustomDataModal.vue";
 
+    let modalActive: Ref<boolean> = ref(false);
+
     function openCreateMenu(): void {
-        console.log("Opening menu to create event data..."); 
+        modalActive.value = true;  
     }
 </script>
 
@@ -17,7 +20,7 @@
             </div>
         </div>
     </div>
-    <!--CustomDataModal></CustomDataModal-->
+    <CustomDataModal v-if="modalActive"/>
 </template>
 
 <style scoped>
