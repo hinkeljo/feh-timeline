@@ -51,7 +51,7 @@
     console.log('End ' + dayjs.unix(props.event.end).format('DD.MM.YYYY hh:mm'));
     console.log('Runs for ' + props.event.getLengthInDays() + ' days');
     console.log('Offset: ' + props.offset + ' days');
-    console.log('------------------------------------------------------------------');
+    console.log('-----');
 });
 </script>
 
@@ -59,9 +59,9 @@
   <div class="eventcard-container">
     <div class="spacer" v-bind:style="style_spacer"></div>
     <div class="eventcard" v-bind:style="style_card">
-      <div v-if="now / 1000 < event.start" class="timer">{{difference}}</div>
+      <!--div v-if="now / 1000 < event.start" class="timer">{{difference}}</div-->
       <div class="namefield sticky">{{ event.name }}</div>
-      <div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer">{{difference}}</div>
+      <!--div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer">{{difference}}</div-->
     </div>
   </div>
 </template>

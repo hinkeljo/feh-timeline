@@ -36,9 +36,9 @@ export class Event {
     }
 
     public overlaps(event: Event): boolean {
-        return ((event.start > this._start && event.start < this._end)
+        return ((event.start >= this._start && event.start < this._end)
             || (event.end > this._start && event.end < this._end) 
-            || (this._start > event.start && this._start < event.end)
+            || (this._start >= event.start && this._start < event.end)
             || (this._end > event.start && this._end < event.end));
     }
 
