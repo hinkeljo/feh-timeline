@@ -6,10 +6,9 @@ export class EventData {
   
   constructor(events: Event[]) {
     // adjust events to correct timezone
-    const offset: number = EventData.getTimeZoneOffset();
     events.forEach((event: Event) => {
-      const newStart = event.start + offset; 
-      const newEnd = event.end + offset; 
+      const newStart = event.start; 
+      const newEnd = event.end; 
       event.start = newStart; 
       event.end = newEnd; 
     });
@@ -25,10 +24,6 @@ export class EventData {
 
   get months() {
     return this.calculateMonths(); 
-  }
-
-  static getTimeZoneOffset(): number {
-    return new Date().getTimezoneOffset() * 60;
   }
 
   // TODO: increase performance by caching months
