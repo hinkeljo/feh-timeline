@@ -24,7 +24,7 @@ export class FehpiService {
                 sort: '-created',
                 
             }); 
-        console.log('[FehPI] Got event lsit:');
+        console.log('[FehPI] Got event list:');
         console.log(resultList);
         return [];
     }

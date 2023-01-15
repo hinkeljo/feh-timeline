@@ -18,14 +18,6 @@ function scrollToCurrentDate() {
   timeline.value.scrollToCurrentDate();
 }
 
-function createEventList(): Event[] {
-  const eventList: Event[] = []; 
-  json.forEach((entry) => {
-    eventList.push(new Event(entry.event.name, entry.event.start, entry.event.end));
-  });
-  return eventList; 
-}
-
 function parseJsonData(): EventCategory[] {
   let result: EventCategory[] = []; 
   json.forEach((entry) => {
@@ -37,7 +29,6 @@ function parseJsonData(): EventCategory[] {
       category.events.addEvent(new Event(entry.event.name, entry.event.start, entry.event.end));
     } else if(existingCategory.length == 0) {
       // create new category
-      console.log("adding new category: " + entry.category);
       result.push(new EventCategory(
         entry.category, 
         new EventData([new Event(entry.event.name, entry.event.start, entry.event.end)])

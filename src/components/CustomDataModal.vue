@@ -10,7 +10,6 @@ import { EventExport } from "@/classes/EventExport";
     function addEvent(): void {
         let newEvent: Event = new Event("New Event", 0, 0); 
         eventExports.push(new EventExport("", newEvent));
-        console.log(eventExports)
     }
 
     function exportEvents(): void {

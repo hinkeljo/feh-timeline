@@ -8,7 +8,6 @@ import { Month } from "@/classes/Month";
 import type { EventCategory } from "@/classes/EventCategory";
 
 onMounted(() => {
-  console.log(months.value);
   scrollToCurrentDate();
 });
 
@@ -36,14 +35,11 @@ const currentOffset: ComputedRef<number> = computed(() => {
 });
 
 const months: ComputedRef<Month[]> = computed(() => {
-  console.log("calculating months...");
   let result: Month[] = []; 
   // add all unqiue months
-  console.log(props.eventdata);
   props.eventdata.forEach((entry) => {
     entry.events.months.forEach((month) => {
       if(result.filter(m => m.index == month.index && m.year == month.year).length == 0) {
-        console.log("adding month " + month.index + " of " + month.year);
         result.push(month);
       }
     });
