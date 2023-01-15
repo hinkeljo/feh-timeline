@@ -1,9 +1,9 @@
 <script setup lang="ts">
-    import type { Event } from '@/classes/Event';
+    import type { EventExport } from '@/classes/EventExport';
     import { ref } from 'vue';
 
     const props = defineProps<{
-        event: Event,
+        eventExport: EventExport,
     }>();
 
     const nameInput = ref(); 
@@ -13,24 +13,24 @@
 
     function setName(): void {
         let name = nameInput.value.value;
-        props.event.name = name; 
+        props.eventExport.event.name = name; 
     }
 
     function setStart(): void {
         let start = startInput.value.value; 
         let timestamp =  dateToTimestamp(start);
-        props.event.start = timestamp; 
+        props.eventExport.event.start = timestamp; 
     }
 
     function setEnd(): void {
         let end = endInput.value.value;
         let timestamp =  dateToTimestamp(end);
-        props.event.end = timestamp; 
+        props.eventExport.event.end = timestamp; 
     }
 
     function setCategory(): void {
-        let name = categoryInput.value.value;
-        props.event.name = name; 
+        let category = categoryInput.value.value;
+        props.eventExport.category = category; 
     }
 
     function dateToTimestamp(date: string): number {

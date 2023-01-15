@@ -3,18 +3,14 @@
     import CustomDataEvent from "./CustomDataEvent.vue";
     import { Event } from '@/classes/Event';
     import AppButton from "./AppButton.vue";
+import { EventExport } from "@/classes/EventExport";
 
-    const events: {
-        category: string,
-        event: Event
-    }[] = reactive([]);
+    const eventExports: EventExport[] = reactive([]);
 
     function addEvent(): void {
         let newEvent: Event = new Event("New Event", 0, 0); 
-        events.push({
-            category: "", 
-            event: newEvent
-        });
+        eventExports.push(new EventExport("", newEvent));
+        console.log(eventExports)
     }
 
     function exportEvents(): void {
@@ -22,7 +18,7 @@
     }
 
     function downloadJSON(): void {
-        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(events).replace(/_/g, ""));
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(eventExports).replace(/_/g, ""));
         var downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "events.json");
@@ -42,8 +38,9 @@
                 </div>
                 <div class="event-container">
                     <CustomDataEvent 
-                    v-for="(event, index) in events" 
-                    :event="event.event"/>
+                        v-for="(eventExport, index) in eventExports"
+                        :event-export="eventExport">
+                    </CustomDataEvent>
                 </div>
                 <div class="add-button center text-subheading clickable" @click="addEvent()" >
                     <img class="add-icon" src="./icons/icon_add.svg" />
