@@ -10,8 +10,9 @@
 
 <style scoped>
     .panel {
-        margin-top: 12px;
-        width: 100%;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
         display: flex;
         flex-direction: row;
         justify-content: center;
