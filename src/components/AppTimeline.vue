@@ -69,7 +69,7 @@ function scrollToCurrentDate(): void {
 </script>
 
 <template>
-  <div class="vertical-scroll">
+  <div class="scroll-container-x">
     <div class="timeline-container" id="timelineContainer">
       <div class="timeline">
         <TimelineMonth
@@ -78,35 +78,52 @@ function scrollToCurrentDate(): void {
           :days="month.days"
         />
       </div>
-      <div class="category-list">
-        <div v-for="(category, index) in eventdata" class="eventlist">
-          <div v-for="(row, index) in category.events.getRows()" class="eventrow">
-            <EventCard
-              v-for="(element, index) in row"
-              :event="element.event"
-              :offset="element.offsetDays"
-            />
+      <div class="scroll-container-y">
+        <div class="category-list">
+          <div v-for="(category, index) in eventdata" class="eventlist">
+            <div v-for="(row, index) in category.events.getRows()" class="eventrow">
+              <EventCard
+                v-for="(element, index) in row"
+                :event="element.event"
+                :offset="element.offsetDays"
+              />
+            </div>
           </div>
+          <DateIndicator :offsetDays="currentOffset"> </DateIndicator>
         </div>
-        <DateIndicator :offsetDays="currentOffset"> </DateIndicator>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.vertical-scroll {
+.scroll-container-x {
   width: 100%;
+  flex-grow: 1;    
+  overflow-x: auto;
+}
+
+.scroll-container-y {
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .timeline-container {
-  padding: 12px;
-  overflow-x: scroll;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline {
   display: flex;
   flex-direction: row;
+}
+
+.category-list {
+  width: 100%;
+  height: fit-content;
 }
 
 .eventlist {
