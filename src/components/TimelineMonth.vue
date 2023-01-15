@@ -8,7 +8,7 @@
 <template>
     <div class="layout">
         <div class="month">
-            {{ name }}
+            <div class="month-label sticky">{{ name }}</div>
         </div>
         <div class="days_list">
             <div v-for="n in days" class="day">{{ n }}</div>
@@ -23,12 +23,16 @@
     }
 
     .month {
-        color: orange;
-        font-size: 24px;
-        font-weight: bold;
         padding-bottom: 12px;
         padding-left: 12px;
         padding-right: 12px;
+    }
+
+    .month-label {
+        width: fit-content;
+        color: orange;
+        font-size: 24px;
+        font-weight: bold;
     }
 
     .days_list {

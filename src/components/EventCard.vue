@@ -113,10 +113,4 @@
     padding: 2px 4px 2px 4px;
     z-index: 2;
   }
-
-  .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-  }
 </style>
