@@ -58,7 +58,7 @@ function scrollToCurrentDate(): void {
   // adjust for page width
   scrollTarget = scrollTarget - window.innerWidth / 2;
   let scrollElement: HTMLElement | null =
-    document.getElementById("timelineContainer");
+    document.getElementById("scrollContainerX");
   let scrollBehaviour: ScrollToOptions = {
     top: 0,
     left: scrollTarget,
@@ -69,8 +69,8 @@ function scrollToCurrentDate(): void {
 </script>
 
 <template>
-  <div class="scroll-container-x">
-    <div class="timeline-container" id="timelineContainer">
+  <div class="scroll-container-x" id="scrollContainerX">
+    <div class="timeline-container">
       <div class="timeline">
         <TimelineMonth
           v-for="month in months"
