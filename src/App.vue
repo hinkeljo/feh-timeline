@@ -61,6 +61,5 @@ function parseJsonData(): EventCategory[] {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
 </style>

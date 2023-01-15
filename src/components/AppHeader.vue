@@ -11,7 +11,7 @@
 
 <template>
     <div class="app-header">
-        <div class="text-heading">FEH Timeline</div>
+        <div class="text-heading">🦉 FEH Timeline</div>
         <div class="right">
             <div 
              class="create text-subheading clickable" 
@@ -26,7 +26,7 @@
 <style scoped>
     .app-header {
         width: 100%;
-        height: 52px;
+        min-height: 52px;
         background-color: orange;
         display: flex;
         flex-direction: row;

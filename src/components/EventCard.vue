@@ -83,6 +83,7 @@
   .eventcard-body {
     display: flex;
     flex-direction: row;
+    padding: 0px 12px;
     gap: 12px;
   }
 
@@ -90,7 +91,7 @@
     border-radius: 12px; 
     color: black;
     background-color: white;
-    padding: 12px;
+    padding: 12px 0px;
     display: flex;
     flex-direction: row;
     gap: 12px;

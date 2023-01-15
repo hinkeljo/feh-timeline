@@ -24,8 +24,6 @@
 
     .month {
         padding-bottom: 12px;
-        padding-left: 12px;
-        padding-right: 12px;
     }
 
     .month-label {
@@ -33,6 +31,8 @@
         color: orange;
         font-size: 24px;
         font-weight: bold;
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
     .days_list {

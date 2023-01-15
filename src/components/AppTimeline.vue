@@ -101,12 +101,12 @@ function scrollToCurrentDate(): void {
   width: 100%;
   flex-grow: 1;    
   overflow-x: auto;
+  overflow-y: auto;
 }
 
 .scroll-container-y {
   width: 100%;
   flex-grow: 1;
-  overflow-y: auto;
 }
 
 .timeline-container {
@@ -119,6 +119,11 @@ function scrollToCurrentDate(): void {
 .timeline {
   display: flex;
   flex-direction: row;
+  position: sticky;
+  top: 0px;
+  background-color: var(--vt-c-black);
+  padding-top: 12px;
+  z-index: 9;
 }
 
 .category-list {
