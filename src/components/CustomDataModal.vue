@@ -8,7 +8,7 @@ import { EventExport } from "@/classes/EventExport";
     const eventExports: EventExport[] = reactive([]);
 
     function addEvent(): void {
-        let newEvent: Event = new Event("New Event", 0, 0); 
+        let newEvent: Event = new Event("New Event", 0, 0, false); 
         eventExports.push(new EventExport("", newEvent));
     }
 
@@ -17,7 +17,7 @@ import { EventExport } from "@/classes/EventExport";
     }
 
     function downloadJSON(): void {
-        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(eventExports).replace(/_/g, ""));
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(eventExports));
         var downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "events.json");

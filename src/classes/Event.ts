@@ -4,11 +4,13 @@ export class Event {
     private _name: string;
     private _start: number;
     private _end: number;
+    private _unkown_end: boolean; 
 
-    constructor(name: string, start: number, end: number) {
+    constructor(name: string, start: number, end: number, unkown_end: boolean) {
         this._name = name;
         this._start = start;
         this._end = end;
+        this._unkown_end = unkown_end; 
     }
 
     get name() {
@@ -33,6 +35,14 @@ export class Event {
 
     set end(end: number) {
         this._end = end; 
+    }
+
+    get unkown_end(): boolean {
+        return this._unkown_end;
+    }
+
+    set unkown_end(unkown_end: boolean) {
+        this._unkown_end = unkown_end; 
     }
 
     public overlaps(event: Event): boolean {

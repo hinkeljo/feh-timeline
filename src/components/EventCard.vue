@@ -25,6 +25,7 @@
 
   const now: Ref<number> = ref( Date.now() ); 
   const difference = computed(() => {
+    if(props.event.unkown_end) return "Unknown";
     // adjust for milliseconds
     const currentTime = now.value / 1000; 
     let compare  = 0; 
@@ -58,7 +59,7 @@
 <template>
   <div class="eventcard-container">
     <div class="spacer" v-bind:style="style_spacer"></div>
-    <div class="eventcard" v-bind:style="style_card">
+    <div class="eventcard" :class="{fading: event.unkown_end}" v-bind:style="style_card">
       <div class="eventcard-body sticky">
         <div v-if="now / 1000 < event.start" class="timer">{{difference}}</div>
         <div class="namefield">{{ event.name }}</div>
@@ -113,5 +114,10 @@
     color: orange;
     padding: 2px 4px 2px 4px;
     z-index: 2;
+    white-space: nowrap;
+  }
+
+  .fading {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 67%, rgba(255,255,255,0) 100%);
   }
 </style>

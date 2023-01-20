@@ -22,19 +22,19 @@ function parseJsonData(): EventCategory[] {
   let result: EventCategory[] = []; 
   json.forEach((entry) => {
     // does category already exist?
-    let existingCategory = result.filter(e => e.name == entry.category);
+    let existingCategory = result.filter(e => e.name == entry._category);
     if(existingCategory.length == 1) {
       // add entry to existing category
       let category = existingCategory[0];
-      category.events.addEvent(new Event(entry.event.name, entry.event.start, entry.event.end));
+      category.events.addEvent(new Event(entry._event._name, entry._event._start, entry._event._end, entry._event._unkown_end));
     } else if(existingCategory.length == 0) {
       // create new category
       result.push(new EventCategory(
-        entry.category, 
-        new EventData([new Event(entry.event.name, entry.event.start, entry.event.end)])
+        entry._category, 
+        new EventData([new Event(entry._event._name, entry._event._start, entry._event._end, entry._event._unkown_end)])
       ));
     } else {
-      console.log("Found two instances of category: " + entry.category);
+      console.log("Found two instances of category: " + entry._category);
       console.log("This should NEVER happen!");
     }
   });

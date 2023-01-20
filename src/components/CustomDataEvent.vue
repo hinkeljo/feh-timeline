@@ -74,6 +74,10 @@
                 <div class="text-subheading">Category</div>
                 <input type="text" ref="categoryInput" value="" @input="setCategory">
             </div>
+            <div class="input-field">
+                <div class="text-subheading">Unknown End</div>
+                <input type="checkbox" ref="unknownEndInput" v-model="props.eventExport.event.unkown_end">
+            </div>
         </div>
     </div>
 </template>
