@@ -102,6 +102,7 @@ function scrollToCurrentDate(): void {
   flex-grow: 1;    
   overflow-x: auto;
   overflow-y: auto;
+  overscroll-behavior: none;
 }
 
 .scroll-container-y {
