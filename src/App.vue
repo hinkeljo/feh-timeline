@@ -47,7 +47,7 @@ function parseJsonData(): EventCategory[] {
   <header>
   </header>
   <main class="main">
-    <AppHeader/>
+    <AppHeader :eventdata="eventData"/>
     <AppTimeline ref="timeline" :eventdata="eventData"/>
     <ButtonPanel>
       <AppButton label="Today" @click="scrollToCurrentDate()"/>

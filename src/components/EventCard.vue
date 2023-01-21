@@ -25,7 +25,8 @@
 
   const now: Ref<number> = ref( Date.now() ); 
   const difference = computed(() => {
-    if(props.event.unkown_end) return "Unknown";
+    if((now.value / 1000 > props.event.start && now.value / 1000 < props.event.end) 
+      && props.event.unkown_end) return "Unknown";
     // adjust for milliseconds
     const currentTime = now.value / 1000; 
     let compare  = 0; 
@@ -105,7 +106,6 @@
     font-size: 18px;
     font-weight: bold;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 0.75);
   }
 
   .timer {
