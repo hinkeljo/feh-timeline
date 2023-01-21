@@ -1,1 +1,353 @@
-[{"_category":"Summoning Event","_event":{"_name":"Summoning Focus: AHR Engage Cup","_start":1674198000,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"Free Summon: AHR Engage Cup","_start":1674198000,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"SHR: Of Lost Kingdoms","_start":1675407600,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"SHR: Dark Desert Rituals","_start":1675494000,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"New Heroes Summoning Event","_start":1673938800,"_end":1675753200,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"Special Heroes Summoning Event","_start":1675753200,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"4* SHR: Hostile Springs","_start":1674111600,"_end":1674975600,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"SF: Tempest Trials+","_start":1675666800,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"SF: Bound Hero Battle","_start":1675062000,"_end":1675839600,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"SF: New Power","_start":1676012400,"_end":1676530800,"_unkown_end":true}},{"_category":"Summoning Event","_event":{"_name":"SH: Sage of Khadein","_start":1673334000,"_end":1676012400,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"SF: New Power","_start":1673506800,"_end":1674284400,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"SF: Heroes with Iceberg","_start":1674284400,"_end":1675234800,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"SF: Heroes with Time's Pulse","_start":1675234800,"_end":1678431600,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"SF: Hall of Forms Revival","_start":1673593200,"_end":1674802800,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"Mythic Hero Summoning Event","_start":1674802800,"_end":1676012400,"_unkown_end":false}},{"_category":"Summoning Event","_event":{"_name":"Legendary & Mythic Remix","_start":1673679600,"_end":1674889200,"_unkown_end":false}},{"_category":"Login Bonus","_event":{"_name":"Login Bonus: Tempest Trials+","_start":1675666800,"_end":1676530800,"_unkown_end":true}},{"_category":"Login Bonus","_event":{"_name":"Login Bonus: Special Heroes","_start":1675753200,"_end":1676530800,"_unkown_end":true}},{"_category":"Login Bonus","_event":{"_name":"Login Bonus: New Heroes","_start":1673938800,"_end":1675062000,"_unkown_end":false}},{"_category":"Login Bonus","_event":{"_name":"Login Bonus: Voting Gauntlet","_start":1674716400,"_end":1675839600,"_unkown_end":false}},{"_category":"Other","_event":{"_name":"New Year's Celebration! 🥳","_start":1672642800,"_end":1675234800,"_unkown_end":false}},{"_category":"Other","_event":{"_name":"6th Anniversary Celebration! 🥳","_start":1675321200,"_end":1676530800,"_unkown_end":true}},{"_category":"Events","_event":{"_name":"Summoner Duels S","_start":1674716400,"_end":1675062000,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"BHB: Kaden & Selkie","_start":1675062000,"_end":1675839600,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Tempest Trials+","_start":1675839600,"_end":1676530800,"_unkown_end":true}},{"_category":"Events","_event":{"_name":"GHB: Lumera","_start":1674025200,"_end":1674630000,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Voting Gauntlet","_start":1674889200,"_end":1675407600,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Heroes Journey","_start":1675407600,"_end":1675753200,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"BHB: Jaffar & Nino","_start":1675926000,"_end":1676530800,"_unkown_end":true}},{"_category":"Events","_event":{"_name":"Limited Hero Battles","_start":1673852400,"_end":1674457200,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Hall of Forms","_start":1674457200,"_end":1675666800,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"PoL","_start":1675666800,"_end":1675839600,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Tempest Trials+","_start":1673506800,"_end":1674370800,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Mythic Hero Battle","_start":1674802800,"_end":1676012400,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Hall of Forms Revival","_start":1673593200,"_end":1674284400,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"GHB Revival: Riev","_start":1674630000,"_end":1675062000,"_unkown_end":false}},{"_category":"Events","_event":{"_name":"Forging Bonds","_start":1673938800,"_end":1675148400,"_unkown_end":false}},{"_category":"Quests","_event":{"_name":"Armored Strike Quests","_start":1674370800,"_end":1675580400,"_unkown_end":false}}]
+[
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "Summoning Focus: AHR Engage Cup",
+            "_start": 1674198000,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "Free Summon: AHR Engage Cup",
+            "_start": 1674198000,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SHR: Of Lost Kingdoms",
+            "_start": 1675407600,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SHR: Dark Desert Rituals",
+            "_start": 1675494000,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "New Heroes Summoning Event",
+            "_start": 1673938800,
+            "_end": 1675753200,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "Special Heroes Summoning Event",
+            "_start": 1675753200,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "4* SHR: Hostile Springs",
+            "_start": 1674111600,
+            "_end": 1674975600,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: Tempest Trials+",
+            "_start": 1675666800,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: Bound Hero Battle",
+            "_start": 1675062000,
+            "_end": 1675839600,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: New Power",
+            "_start": 1676012400,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SH: Sage of Khadein",
+            "_start": 1673334000,
+            "_end": 1676012400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: New Power",
+            "_start": 1673506800,
+            "_end": 1674284400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: Heroes with Iceberg",
+            "_start": 1674284400,
+            "_end": 1675234800,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: Heroes with Time's Pulse",
+            "_start": 1675234800,
+            "_end": 1676012400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "SF: Hall of Forms Revival",
+            "_start": 1673593200,
+            "_end": 1674802800,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "Mythic Hero Summoning Event",
+            "_start": 1674802800,
+            "_end": 1676012400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Summoning Event",
+        "_event": {
+            "_name": "Legendary & Mythic Remix",
+            "_start": 1673679600,
+            "_end": 1674889200,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Login Bonus",
+        "_event": {
+            "_name": "Login Bonus: Tempest Trials+",
+            "_start": 1675666800,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Login Bonus",
+        "_event": {
+            "_name": "Login Bonus: Special Heroes",
+            "_start": 1675753200,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Login Bonus",
+        "_event": {
+            "_name": "Login Bonus: New Heroes",
+            "_start": 1673938800,
+            "_end": 1675062000,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Login Bonus",
+        "_event": {
+            "_name": "Login Bonus: Voting Gauntlet",
+            "_start": 1674716400,
+            "_end": 1675839600,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Other",
+        "_event": {
+            "_name": "New Year's Celebration! 🥳",
+            "_start": 1672642800,
+            "_end": 1675234800,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Other",
+        "_event": {
+            "_name": "6th Anniversary Celebration! 🥳",
+            "_start": 1675321200,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "SD:S",
+            "_start": 1674716400,
+            "_end": 1675062000,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "BHB: Kaden & Selkie",
+            "_start": 1675062000,
+            "_end": 1675839600,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Tempest Trials+",
+            "_start": 1675839600,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "GHB: Lumera",
+            "_start": 1674025200,
+            "_end": 1674630000,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Voting Gauntlet",
+            "_start": 1674889200,
+            "_end": 1675407600,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Heroes Journey",
+            "_start": 1675407600,
+            "_end": 1675753200,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "BHB: Jaffar & Nino",
+            "_start": 1675926000,
+            "_end": 1676530800,
+            "_unkown_end": true
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Limited Hero Battles",
+            "_start": 1673852400,
+            "_end": 1674457200,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Hall of Forms",
+            "_start": 1674457200,
+            "_end": 1675666800,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "PoL",
+            "_start": 1675666800,
+            "_end": 1675839600,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Tempest Trials+",
+            "_start": 1673506800,
+            "_end": 1674370800,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Mythic Hero Battle",
+            "_start": 1674802800,
+            "_end": 1676012400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Hall of Forms Revival",
+            "_start": 1673593200,
+            "_end": 1674284400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "GHB Revival: Riev",
+            "_start": 1674630000,
+            "_end": 1675062000,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Events",
+        "_event": {
+            "_name": "Forging Bonds",
+            "_start": 1673938800,
+            "_end": 1675148400,
+            "_unkown_end": false
+        }
+    },
+    {
+        "_category": "Quests",
+        "_event": {
+            "_name": "Armored Strike Quests",
+            "_start": 1674370800,
+            "_end": 1675580400,
+            "_unkown_end": false
+        }
+    }
+]
