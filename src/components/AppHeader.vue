@@ -2,7 +2,12 @@
     import { ref, type Ref } from "@vue/reactivity";
     import CustomDataModal from "./CustomDataModal.vue";
 
+    let modalButtonCounter: Ref<number> = ref(0); 
     let modalActive: Ref<boolean> = ref(false);
+    
+    function incrementModalCounter(): void {
+        modalButtonCounter.value = modalButtonCounter.value + 1;
+    }
 
     function openCreateMenu(): void {
         modalActive.value = true;  
@@ -11,9 +16,10 @@
 
 <template>
     <div class="app-header">
-        <div class="text-heading">🦉 FEH Timeline</div>
+        <div class="text-heading" @click="incrementModalCounter()">🦉 FEH Timeline</div>
         <div class="right">
             <div 
+             v-if="modalButtonCounter >= 5"
              class="create text-subheading clickable" 
              @click="openCreateMenu()">
                 Create data
