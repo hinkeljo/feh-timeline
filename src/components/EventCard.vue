@@ -42,7 +42,8 @@
       let result: string = ''; 
       if(days > 0) result = days + 'd'; 
       if(hours > 0) result = result + ' ' + hours + 'h';
-      //if(minutes > 0) result = result + ' ' + minutes + 'm'; 
+      // only show minutes if time remaining is less than one day 
+      if(minutes > 0 && days <= 0) result = result + ' ' + minutes + 'm'; 
       return result; 
     } else return ''; 
   }); 
@@ -68,9 +69,9 @@
       ]" 
       v-bind:style="style_card">
       <div class="eventcard-body sticky">
-        <div v-if="now / 1000 < event.start" class="timer timer_left">{{difference}}</div>
+        <div v-if="event.getLengthInDays() > 5 && now / 1000 < event.start" class="timer timer_left">{{difference}}</div>
         <div class="namefield">{{ event.name }}</div>
-        <div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer timer_right">{{difference}}</div>
+        <div v-if="event.getLengthInDays() > 5 && now / 1000 > event.start && now / 1000 < event.end" class="timer timer_right">{{difference}}</div>
       </div>
     </div>
   </div>
