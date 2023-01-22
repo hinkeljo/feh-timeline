@@ -21,16 +21,21 @@
 </script>
 
 <template>
-    <div class="app-header">
-        <div class="text-heading" @click="incrementModalCounter()">🦉 FEH Timeline</div>
-        <div class="right">
-            <FilterMenu :eventdata="eventdata"/>
-            <div 
-             v-if="modalButtonCounter >= 5"
-             class="create text-subheading clickable" 
-             @click="openCreateMenu()">
-                Create data
+    <div class="app-header center-h">
+        <div class="app-header-content">
+            <div class="text-heading center-v gap-12" @click="incrementModalCounter()">
+                <img class="owl" src="@/assets/feh.png" />
+                FEH Timeline
             </div>
+            <!--div class="right">
+                <FilterMenu :eventdata="eventdata"/>
+                <div 
+                v-if="modalButtonCounter >= 5"
+                class="create text-subheading clickable" 
+                @click="openCreateMenu()">
+                    Create data
+                </div>
+            </div-->
         </div>
     </div>
     <CustomDataModal v-if="modalActive" @close="modalActive = false"/>
@@ -39,14 +44,27 @@
 <style scoped>
     .app-header {
         width: 100%;
-        min-height: 52px;
-        background-color: orange;
+        min-height: 64px;
+        background: url('@/assets/background_header.png') no-repeat;
+        background-position-y: bottom;
+        background-position-x: center;
+    }
+
+    .app-header-content {
+        width: 100%;
+        max-width: 600px;
+        height: 36px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         padding-left: 12px;
         padding-right: 12px;
+    }
+
+    .owl {
+        max-width: 36px;
+        max-height: 36px;
     }
 
     .right {

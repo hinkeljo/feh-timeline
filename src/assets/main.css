@@ -40,11 +40,22 @@ a,
   align-items: center;
 }
 
+.center-h {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.gap-12 {
+  gap: 12px;
+}
+
 .text-heading {
-  font-size: 18px;
+  font-size: 32px;
   font-weight: bold;
-  color: black;
-  line-height: 18px;
+  color: white;
+  line-height: 32px;
+  -webkit-text-stroke: black 1px;
 }
 
 .text-subheading {
