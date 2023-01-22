@@ -1,14 +1,22 @@
 <script setup lang="ts">
-import { onMounted, computed, type ComputedRef } from "vue";
+import { onMounted, computed, type ComputedRef, ref } from "vue";
 import TimelineMonth from "./TimelineMonth.vue";
 import EventCard from "./EventCard.vue";
 import { EventData } from "@/classes/EventData";
+import { RefreshService } from "@/classes/RefreshService";
 import DateIndicator from "./DateIndicator.vue";
 import { Month } from "@/classes/Month";
 import type { EventCategory } from "@/classes/EventCategory";
 
+const refreshKey = ref(0);
+
 onMounted(() => {
   scrollToCurrentDate();
+  let refreshHandler = (rs: RefreshService, key: number) => {
+    console.log("Refresh!");
+    refreshKey.value = key;
+  }
+  RefreshService.Instance.OnRefresh.on(refreshHandler);
 });
 
 const props = defineProps<{
@@ -17,6 +25,12 @@ const props = defineProps<{
 
 defineExpose({
   scrollToCurrentDate,
+});
+
+const filteredEventData = computed(() => {
+  const key = refreshKey.value;
+  console.log("Computing event data...");
+  return props.eventdata.filter(e => e.visible && key == key);
 });
 
 const currentOffset: ComputedRef<number> = computed(() => {
@@ -80,10 +94,10 @@ function scrollToCurrentDate(): void {
       </div>
       <div class="scroll-container-y">
         <div class="category-list">
-          <div v-for="(category, index) in eventdata" class="eventlist">
-            <div v-for="(row, index) in category.events.getRows()" class="eventrow">
+          <div v-for="category in filteredEventData" class="eventlist">
+            <div v-for="row in category.events.getRows()" class="eventrow">
               <EventCard
-                v-for="(element, index) in row"
+                v-for="element in row"
                 :event="element.event"
                 :offset="element.offsetDays"
               />

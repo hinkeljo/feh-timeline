@@ -31,7 +31,8 @@ function parseJsonData(): EventCategory[] {
       // create new category
       result.push(new EventCategory(
         entry._category, 
-        new EventData([new Event(entry._event._name, entry._event._start, entry._event._end, entry._event._unkown_end)])
+        new EventData([new Event(entry._event._name, entry._event._start, entry._event._end, entry._event._unkown_end)]),
+        true
       ));
     } else {
       console.log("Found two instances of category: " + entry._category);

@@ -47,14 +47,14 @@
     } else return ''; 
   }); 
 
-  onMounted(() => {
+  /* onMounted(() => {
     console.log('Event ' + props.event.name); 
     console.log('Start ' + dayjs.unix(props.event.start).format('DD.MM.YYYY hh:mm')); 
     console.log('End ' + dayjs.unix(props.event.end).format('DD.MM.YYYY hh:mm'));
     console.log('Runs for ' + props.event.getLengthInDays() + ' days');
     console.log('Offset: ' + props.offset + ' days');
     console.log('-----');
-  });
+  }); */
 </script>
 
 <template>

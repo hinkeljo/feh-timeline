@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import type { EventCategory } from "@/classes/EventCategory";
+import { RefreshService } from "@/classes/RefreshService";
     import { computed, ref } from "@vue/reactivity";
     import type { ComputedRef } from "vue";
 
@@ -19,7 +20,12 @@
 
     function toggleMenu(): void {
         menuOpen.value = !menuOpen.value; 
-        console.log("Menu open ? " + menuOpen);
+    }
+
+    function toggleFilter(event: any, category: EventCategory) {
+        const checked = event.target.checked;
+        category.visible = checked; 
+        RefreshService.Instance.refresh(); 
     }
 </script>
 
@@ -32,7 +38,7 @@
     </div>
     <div class="menu" :class="[menuOpen == true ? 'menu_open' : 'menu_close']">
         <div v-for="category in eventdata" class="category-check">
-            <input class="checkbox" type="checkbox">
+            <input class="checkbox" type="checkbox" checked @change="toggleFilter($event, category)">
             <div>{{category.name}}</div>
         </div>
     </div>
