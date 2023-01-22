@@ -60,7 +60,13 @@
 <template>
   <div class="eventcard-container">
     <div class="spacer" v-bind:style="style_spacer"></div>
-    <div class="eventcard" :class="[now / 1000 > event.start && now / 1000 < event.end ? 'eventcard_background_active' : 'eventcard_background_inactive']" v-bind:style="style_card">
+    <div 
+      class="eventcard" 
+      :class="[
+        now / 1000 > event.start && now / 1000 < event.end ? 'eventcard_background_active' : 'eventcard_background_inactive',
+        event.unkown_end ? 'fading' : ''
+      ]" 
+      v-bind:style="style_card">
       <div class="eventcard-body sticky">
         <div v-if="now / 1000 < event.start" class="timer timer_left">{{difference}}</div>
         <div class="namefield">{{ event.name }}</div>
@@ -89,7 +95,6 @@
   }
 
   .eventcard {
-    border-radius: 24px; 
     color: black;
     display: flex;
     flex-direction: row;
@@ -154,7 +159,8 @@
     border-image-slice: 49% 49% fill;
   }
 
-  .fading_ {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 67%, rgba(255,255,255,0) 100%);
+  .fading {
+    -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 67%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 67%, rgba(0,0,0,0) 100%);
   }
 </style>
