@@ -49,10 +49,13 @@ function parseJsonData(): EventCategory[] {
   </header>
   <main class="main background">
     <AppHeader :eventdata="eventData"/>
-    <AppTimeline ref="timeline" :eventdata="eventData"/>
-    <ButtonPanel>
+    <AppTimeline v-if="eventData.length > 0" ref="timeline" :eventdata="eventData"/>
+    <ButtonPanel v-if="eventData.length > 0">
       <AppButton label="Today" @click="scrollToCurrentDate()"/>
     </ButtonPanel>
+    <div v-if="eventData.length == 0" class="center">
+      <img class="sand" src="./assets/sand.jpg"/>
+    </div>
   </main>
 </template>
 
@@ -62,6 +65,10 @@ function parseJsonData(): EventCategory[] {
     height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  .sand {
+    max-width: 100%;
   }
 
   .background {
