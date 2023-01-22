@@ -57,5 +57,8 @@
 
     .create {
         text-decoration: underline;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

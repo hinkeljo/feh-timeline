@@ -47,7 +47,7 @@ function parseJsonData(): EventCategory[] {
 <template>
   <header>
   </header>
-  <main class="main">
+  <main class="main background">
     <AppHeader :eventdata="eventData"/>
     <AppTimeline ref="timeline" :eventdata="eventData"/>
     <ButtonPanel>
@@ -62,5 +62,12 @@ function parseJsonData(): EventCategory[] {
     height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  .background {
+    background-image: url(./assets/background_main_black.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 </style>

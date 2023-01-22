@@ -42,29 +42,29 @@
       let result: string = ''; 
       if(days > 0) result = days + 'd'; 
       if(hours > 0) result = result + ' ' + hours + 'h';
-      if(minutes > 0) result = result + ' ' + minutes + 'm'; 
+      //if(minutes > 0) result = result + ' ' + minutes + 'm'; 
       return result; 
     } else return ''; 
   }); 
 
-  /* onMounted(() => {
+  onMounted(() => {
     console.log('Event ' + props.event.name); 
     console.log('Start ' + dayjs.unix(props.event.start).format('DD.MM.YYYY hh:mm')); 
     console.log('End ' + dayjs.unix(props.event.end).format('DD.MM.YYYY hh:mm'));
     console.log('Runs for ' + props.event.getLengthInDays() + ' days');
     console.log('Offset: ' + props.offset + ' days');
     console.log('-----');
-  }); */
+  });
 </script>
 
 <template>
   <div class="eventcard-container">
     <div class="spacer" v-bind:style="style_spacer"></div>
-    <div class="eventcard" :class="{fading: event.unkown_end}" v-bind:style="style_card">
+    <div class="eventcard" :class="[now / 1000 > event.start && now / 1000 < event.end ? 'eventcard_background_active' : 'eventcard_background_inactive']" v-bind:style="style_card">
       <div class="eventcard-body sticky">
-        <div v-if="now / 1000 < event.start" class="timer">{{difference}}</div>
+        <div v-if="now / 1000 < event.start" class="timer timer_left">{{difference}}</div>
         <div class="namefield">{{ event.name }}</div>
-        <div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer">{{difference}}</div>
+        <div v-if="now / 1000 > event.start && now / 1000 < event.end" class="timer timer_right">{{difference}}</div>
       </div>
     </div>
   </div>
@@ -74,8 +74,6 @@
   .eventcard-container {
     display: flex;
     flex-direction: row;
-    height: 54px;
-    max-height: 54px;
   }
 
   .spacer {
@@ -85,39 +83,78 @@
   .eventcard-body {
     display: flex;
     flex-direction: row;
-    padding: 0px 12px;
     gap: 12px;
+    padding: 0px 12px;
+    margin: -24px -24px;
   }
 
   .eventcard {
-    border-radius: 12px; 
+    border-radius: 24px; 
     color: black;
-    background-color: white;
-    padding: 12px 0px;
     display: flex;
     flex-direction: row;
     gap: 12px;
+    border-image: url(../assets/background_event.png);
+    border-width: 36px;
+    border-style: solid;
+    border-image-slice: 49% 49% fill;
+    height: 0px;
+  }
+
+  .eventcard_background_active {
+    border-image: url(../assets/background_event.png);
+    border-width: 36px;
+    border-style: solid;
+    border-image-slice: 49% 49% fill;
+  }
+
+  .eventcard_background_inactive {
+    border-image: url(../assets/background_event_inactive.png);
+    border-width: 36px;
+    border-style: solid;
+    border-image-slice: 49% 49% fill;
   }
 
   .namefield {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 24px;
+    line-height: 26px;
     font-weight: bold;
-    z-index: 2;
+    font-family: 'Helvetica';
+    color: white;
+    -webkit-text-stroke: 1px black;
+    z-index: 3;
   }
 
   .timer {
-    background-color: grey;
-    border-radius: 4px;
-    color: orange;
-    padding: 2px 4px 2px 4px;
     z-index: 2;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px black;
+    padding: 0px 22px;
   }
 
-  .fading {
+  .timer_left {
+    border-image: url(../assets/background_timer_red.png);
+    border-image-width: auto auto;
+    border-style: solid;
+    border-image-slice: 49% 49% fill;
+  }
+
+  .timer_right {
+    border-image: url(../assets/background_timer_green.png);
+    border-image-width: auto auto;
+    border-style: solid;
+    border-image-slice: 49% 49% fill;
+  }
+
+  .fading_ {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 67%, rgba(255,255,255,0) 100%);
   }
 </style>
