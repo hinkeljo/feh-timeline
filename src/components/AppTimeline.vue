@@ -136,6 +136,12 @@ function scrollToCurrentDate(): void {
   top: 0px;
   padding-top: 12px;
   z-index: 9;
+
+  background-image: url('@/assets/background_main_black.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .category-list {
