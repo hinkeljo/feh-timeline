@@ -23,16 +23,26 @@
     }
 
     .month {
-        padding-bottom: 12px;
+        padding-bottom: 0px;
     }
 
     .month-label {
-        width: fit-content;
-        color: orange;
+        width: 200px;
+        height: 75px;
+        color: white;
+        -webkit-text-stroke: black 1px;
         font-size: 24px;
         font-weight: bold;
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 24px;
+        padding-right: 24px;
+        background-image: url('@/assets/background_month.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
     .days_list {
@@ -42,7 +52,7 @@
     }
 
     .day {
-        color: lightgray;
+        color: white;
         font-size: 18px;
         font-weight: bold;
         width: 48px;
@@ -50,7 +60,7 @@
         border: 2px;
         border-right: 1px;
         border-left: 1px;
-        border-color: grey;
+        border-color: white;
         border-style: solid;
         text-align: center;
         display: flex;

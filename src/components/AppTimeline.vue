@@ -121,7 +121,6 @@ function scrollToCurrentDate(): void {
 
 .scroll-container-y {
   width: 100%;
-  flex-grow: 1;
   padding-bottom: 164px;
 }
 
