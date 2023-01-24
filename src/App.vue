@@ -8,6 +8,7 @@ import ButtonPanel from "./components/ButtonPanel.vue";
 import AppHeader from "./components/AppHeader.vue";
 import json from "./assets/events.json";
 import { EventCategory } from "./classes/EventCategory";
+import { DialogWrapper } from 'vue3-promise-dialog';
 
 const eventData: EventCategory[] = parseJsonData();
 
@@ -37,6 +38,7 @@ function parseJsonData(): EventCategory[] {
     } else {
       console.log("Found two instances of category: " + entry._category);
       console.log("This should NEVER happen!");
+      return []; 
     }
   });
   return result;
@@ -56,6 +58,7 @@ function parseJsonData(): EventCategory[] {
     <div v-if="eventData.length == 0" class="center">
       <img class="sand" src="./assets/sand.jpg"/>
     </div>
+    <DialogWrapper :transition-attrs="{name: 'dialog'}"/>
   </main>
 </template>
 
