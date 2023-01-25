@@ -42,8 +42,8 @@
       let result: string = ''; 
       if(days > 0) result = days + 'd'; 
       if(hours > 0) result = result + ' ' + hours + 'h';
-      // only show minutes if time remaining is less than one day 
-      if(minutes > 0 && days <= 0) result = result + ' ' + minutes + 'm'; 
+      // only show minutes if time remaining is less than one day or less than 1 hour
+      if(minutes > 0 && (days <= 0 || hours <= 0)) result = result + ' ' + minutes + 'm'; 
       return result; 
     } else return ''; 
   }); 
