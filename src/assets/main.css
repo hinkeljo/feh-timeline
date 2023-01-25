@@ -59,9 +59,11 @@ a,
 }
 
 .text-subheading {
-  font-size: 12px;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: bold;
-  color: black;
+  color: white;
+  -webkit-text-stroke: black 1px;
 }
 
 .scrollable-y {

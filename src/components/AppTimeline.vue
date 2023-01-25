@@ -13,7 +13,6 @@ const refreshKey = ref(0);
 onMounted(() => {
   scrollToCurrentDate();
   let refreshHandler = (rs: RefreshService, key: number) => {
-    console.log("Refresh!");
     refreshKey.value = key;
   }
   RefreshService.Instance.OnRefresh.on(refreshHandler);
@@ -29,7 +28,6 @@ defineExpose({
 
 const filteredEventData = computed(() => {
   const key = refreshKey.value;
-  console.log("Computing event data...");
   return props.eventdata.filter(e => e.visible && key == key);
 });
 

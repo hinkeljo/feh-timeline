@@ -1,22 +1,47 @@
 <script setup lang="ts">
     import type { EventCategory } from '@/classes/EventCategory';
+    import { RefreshService } from '@/classes/RefreshService';
+    import { computed, ref } from '@vue/reactivity';
+    import { onMounted } from 'vue';
     import {closeDialog} from 'vue3-promise-dialog'
 
     const props = defineProps<{
         eventdata: EventCategory[],
     }>();
 
-    function returnValue() {
-        return true; 
+    const refreshKey = ref(0);
+
+    onMounted(() => {
+        let refreshHandler = (rs: RefreshService, key: number) => {
+            refreshKey.value = key;
+        }
+        RefreshService.Instance.OnRefresh.on(refreshHandler);
+    });
+
+    const filteredEventData = computed(() => {
+        const key = refreshKey.value;
+        return props.eventdata;
+    });
+
+    function toggleFilter(category: EventCategory) {
+        let newState = !category.visible; 
+        category.visible = newState; 
+        RefreshService.Instance.refresh(); 
     }
 </script>
 
 <template>
     <div class="dialog_background">
         <div class="dialog_body">
-            <p>Test</p>
-            <button @click="closeDialog(false)" class="btn">NO</button>
-            <button @click="closeDialog(true)" class="btn">YES</button>
+            <div v-for="category in filteredEventData" class="category-check">
+                <div 
+                    :class="[ category.visible ? 'button_filter_active' : 'button_filter_inactive' ]"
+                    @click="toggleFilter(category)">
+                    <div class="filter_label text-subheading">{{category.name}}</div>
+                </div>
+            </div>
+            <!--button @click="closeDialog(false)" class="btn">NO</button>
+            <button @click="closeDialog(true)" class="btn">YES</button-->
         </div>
     </div>
 </template>
@@ -33,11 +58,39 @@
     }
 
     .dialog_body {
+        width: fit-content;
+        height: fit-content;
+        max-width: 95%;
+        max-width: 95%;
+
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: white;
         padding: 20px;
+
+        border-image: url('@/assets/background_dialog.png');
+        border-image-width: auto auto;
+        border-style: solid;
+        border-image-slice: 49% 49% fill;
+    }
+
+    .button_filter_active {
+        border-image: url('@/assets/toggle_active.png');
+        border-image-width: auto auto;
+        border-style: solid;
+        border-image-slice: 49% 49% fill;
+    }
+
+    .button_filter_inactive {
+        border-image: url('@/assets/toggle_inactive.png');
+        border-image-width: auto auto;
+        border-style: solid;
+        border-image-slice: 49% 49% fill;
+    }
+
+    .filter_label {
+        padding: 12px 32px;
+        width: fit-content;
     }
 </style>

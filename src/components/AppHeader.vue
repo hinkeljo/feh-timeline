@@ -14,7 +14,7 @@
     
     async function incrementModalCounter(): Promise<void> {
         modalButtonCounter.value = modalButtonCounter.value + 1;
-        let result = await filter([]);
+        let result = await filter(props.eventdata);
         console.log(result);
     }
 
