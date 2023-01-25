@@ -3,6 +3,7 @@
     import CustomDataModal from "./CustomDataModal.vue";
     import FilterMenu from "./FilterMenu.vue";
     import type { EventCategory } from "@/classes/EventCategory";
+    import { filter } from "@/classes/DialogService";
 
     const props = defineProps<{
         eventdata: EventCategory[],
@@ -11,8 +12,10 @@
     let modalButtonCounter: Ref<number> = ref(0); 
     let modalActive: Ref<boolean> = ref(false);
     
-    function incrementModalCounter(): void {
+    async function incrementModalCounter(): Promise<void> {
         modalButtonCounter.value = modalButtonCounter.value + 1;
+        let result = await filter([]);
+        console.log(result);
     }
 
     function openCreateMenu(): void {
@@ -27,7 +30,7 @@
                 <img class="owl" src="@/assets/feh.png" />
                 FEH Timeline
             </div>
-            <!--div class="right">
+            <div class="right">
                 <FilterMenu :eventdata="eventdata"/>
                 <div 
                 v-if="modalButtonCounter >= 5"
@@ -35,7 +38,7 @@
                 @click="openCreateMenu()">
                     Create data
                 </div>
-            </div-->
+            </div>
         </div>
     </div>
     <CustomDataModal v-if="modalActive" @close="modalActive = false"/>
