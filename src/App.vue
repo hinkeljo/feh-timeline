@@ -2,13 +2,16 @@
 import { ref } from "vue";
 import { Event } from "./classes/Event";
 import { EventData } from "./classes/EventData";
-import AppButton from "./components/AppButtonToday.vue";
+import AppButtonToday from "./components/AppButtonToday.vue";
+import AppButtonFilter from "./components/AppButtonFilter.vue";
+import AppButtonInfo from "./components/AppButtonInfo.vue";
 import AppTimeline from "./components/AppTimeline.vue";
 import ButtonPanel from "./components/ButtonPanel.vue";
 import AppHeader from "./components/AppHeader.vue";
 import json from "./assets/events.json";
 import { EventCategory } from "./classes/EventCategory";
 import { DialogWrapper } from 'vue3-promise-dialog';
+import { filter } from "./classes/DialogService";
 
 const eventData: EventCategory[] = parseJsonData();
 
@@ -17,6 +20,11 @@ const timeline = ref();
 function scrollToCurrentDate() {
   if(timeline.value == null) return; 
   timeline.value.scrollToCurrentDate();
+}
+
+async function openFilterMenu() {
+  let result = await filter(eventData);
+  console.log(result);
 }
 
 function parseJsonData(): EventCategory[] {
@@ -53,7 +61,9 @@ function parseJsonData(): EventCategory[] {
     <AppHeader :eventdata="eventData"/>
     <AppTimeline v-if="eventData.length > 0" ref="timeline" :eventdata="eventData"/>
     <ButtonPanel v-if="eventData.length > 0">
-      <AppButton label="Today" @click="scrollToCurrentDate()"/>
+      <AppButtonFilter @click="openFilterMenu()"/>
+      <AppButtonToday @click="scrollToCurrentDate()"/>
+      <AppButtonInfo @click=""/>
     </ButtonPanel>
     <div v-if="eventData.length == 0" class="center">
       <img class="sand" src="./assets/sand.jpg"/>

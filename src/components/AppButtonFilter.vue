@@ -4,13 +4,13 @@
 
 <template>
     <img 
-        class="button_today" 
-        src="@/assets/button_refresh.png" 
-        alt="Refresh"/>
+        class="button_filter" 
+        src="@/assets/button_filter.png" 
+        alt="Filter"/>
 </template>
 
 <style scoped>
-    .button_today {
+    .button_filter {
         width: 15vw;
         height: 15vw;
         max-width: 72px;

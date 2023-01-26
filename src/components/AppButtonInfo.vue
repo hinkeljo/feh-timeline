@@ -4,13 +4,13 @@
 
 <template>
     <img 
-        class="button_today" 
-        src="@/assets/button_refresh.png" 
-        alt="Refresh"/>
+        class="button_info" 
+        src="@/assets/button_info.png" 
+        alt="Scroll to today"/>
 </template>
 
 <style scoped>
-    .button_today {
+    .button_info {
         width: 15vw;
         height: 15vw;
         max-width: 72px;
