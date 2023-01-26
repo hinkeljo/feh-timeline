@@ -6,7 +6,7 @@
 
 <template>
     <div class="button_green clickable">
-        <div class="button_content text-subheading">{{label}}</div>
+        <div class="button_content text-normal">{{label}}</div>
     </div>
 </template>
 

@@ -6,7 +6,7 @@
     <img 
         class="button_info" 
         src="@/assets/button_info.png" 
-        alt="Scroll to today"/>
+        alt="Info"/>
 </template>
 
 <style scoped>

@@ -8,10 +8,10 @@
 <template>
     <div class="layout">
         <div class="month">
-            <div class="month-label sticky">{{ name }}</div>
+            <div class="month-label text-subheading sticky">{{ name }}</div>
         </div>
         <div class="days_list">
-            <div v-for="n in days" class="day">{{ n }}</div>
+            <div v-for="n in days" class="day text-normal">{{ n }}</div>
         </div>
     </div>
 </template>
@@ -29,10 +29,6 @@
     .month-label {
         width: 200px;
         height: 75px;
-        color: white;
-        -webkit-text-stroke: black 1px;
-        font-size: 24px;
-        font-weight: bold;
         padding-left: 24px;
         padding-right: 24px;
         background-image: url('@/assets/background_month.png');
@@ -52,9 +48,6 @@
     }
 
     .day {
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
         width: 48px;
         height: 48px;
         border: 2px;

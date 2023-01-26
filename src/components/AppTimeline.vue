@@ -134,12 +134,17 @@ function scrollToCurrentDate(): void {
   top: 0px;
   padding-top: 12px;
   z-index: 9;
+  box-shadow: 0px 6px 12px 6px black;
+}
 
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-image: url('@/assets/background_main_black.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .category-list {

@@ -58,24 +58,24 @@
 <template>
     <div class="custom-event-card">
         <div class="input-field">
-            <div class="text-subheading">Event</div>
+            <div class="text-normal">Event</div>
             <input type="text" ref="nameInput" value="New Event" @input="setName">
         </div>
         <div class="inputs">
             <div class="input-field">
-                <div class="text-subheading">Start</div>
+                <div class="text-normal">Start</div>
                 <input type="date" ref="startInput" @input="setStart">
             </div>
             <div class="input-field">
-                <div class="text-subheading">End</div>
+                <div class="text-normal">End</div>
                 <input type="date" ref="endInput" @input="setEnd">
             </div>
             <div class="input-field">
-                <div class="text-subheading">Category</div>
+                <div class="text-normal">Category</div>
                 <input type="text" ref="categoryInput" value="" @input="setCategory">
             </div>
             <div class="input-field">
-                <div class="text-subheading">Unknown End</div>
+                <div class="text-normal">Unknown End</div>
                 <input type="checkbox" ref="unknownEndInput" v-model="props.eventExport.event.unkown_end">
             </div>
         </div>

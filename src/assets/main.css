@@ -3,6 +3,7 @@
 #app {
   max-width: 1280px;
   font-weight: normal;
+  overflow: hidden;
 }
 
 a,
@@ -52,18 +53,26 @@ a,
 
 .text-heading {
   font-size: 32px;
+  line-height: 32px;
   font-weight: bold;
   color: white;
-  line-height: 32px;
-  -webkit-text-stroke: black 1px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .text-subheading {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.text-normal {
   font-size: 18px;
   line-height: 18px;
   font-weight: bold;
   color: white;
-  -webkit-text-stroke: black 1px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .scrollable-y {

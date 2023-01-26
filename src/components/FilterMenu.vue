@@ -30,7 +30,7 @@ import { RefreshService } from "@/classes/RefreshService";
 </script>
 
 <template>
-    <div class="filter text-subheading" 
+    <div class="filter text-normal" 
         v-if="categories.length > 0"
         @click="toggleMenu()">
         <img class="filter-icon" src="../assets/icon_filter.svg" />
@@ -68,7 +68,6 @@ import { RefreshService } from "@/classes/RefreshService";
         background-color: orange;
         z-index: 98;
         white-space: nowrap;
-
         animation: opacity
     }
 

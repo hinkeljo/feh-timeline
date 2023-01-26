@@ -58,7 +58,7 @@ function parseJsonData(): EventCategory[] {
   <header>
   </header>
   <main class="main background">
-    <AppHeader :eventdata="eventData"/>
+    <!--AppHeader :eventdata="eventData"/-->
     <AppTimeline v-if="eventData.length > 0" ref="timeline" :eventdata="eventData"/>
     <ButtonPanel v-if="eventData.length > 0">
       <AppButtonFilter @click="openFilterMenu()"/>
@@ -78,6 +78,7 @@ function parseJsonData(): EventCategory[] {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .sand {

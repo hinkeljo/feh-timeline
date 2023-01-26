@@ -69,9 +69,9 @@
       ]" 
       v-bind:style="style_card">
       <div class="eventcard-body sticky">
-        <div v-if="event.getLengthInDays() > 5 && now / 1000 < event.start" class="timer timer_left">{{difference}}</div>
-        <div class="namefield">{{ event.name }}</div>
-        <div v-if="event.getLengthInDays() > 5 && now / 1000 > event.start && now / 1000 < event.end" class="timer timer_right">{{difference}}</div>
+        <div v-if="event.getLengthInDays() > 5 && now / 1000 < event.start" class="timer timer_left text-normal">{{difference}}</div>
+        <div class="text-subheading namefield">{{ event.name }}</div>
+        <div v-if="event.getLengthInDays() > 5 && now / 1000 > event.start && now / 1000 < event.end" class="timer timer_right text-normal">{{difference}}</div>
       </div>
     </div>
   </div>
@@ -96,7 +96,6 @@
   }
 
   .eventcard {
-    color: black;
     display: flex;
     flex-direction: row;
     gap: 12px;
@@ -125,12 +124,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
     line-height: 26px;
     font-weight: bold;
-    font-family: 'Helvetica';
-    color: white;
-    -webkit-text-stroke: 1px black;
     z-index: 3;
   }
 
@@ -140,9 +135,6 @@
     display: flex;
     align-items: center;
     color: white;
-    font-size: 18px;
-    font-weight: bold;
-    -webkit-text-stroke: 1px black;
     padding: 0px 22px;
   }
 
@@ -150,14 +142,14 @@
     border-image: url(../assets/background_timer_red.png);
     border-image-width: auto auto;
     border-style: solid;
-    border-image-slice: 49% 49% fill;
+    border-image-slice: 38 50 fill;
   }
 
   .timer_right {
     border-image: url(../assets/background_timer_green.png);
     border-image-width: auto auto;
     border-style: solid;
-    border-image-slice: 49% 49% fill;
+    border-image-slice: 38 50 fill;
   }
 
   .fading {

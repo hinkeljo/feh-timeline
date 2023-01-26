@@ -41,7 +41,7 @@ import { EventExport } from "@/classes/EventExport";
                         :event-export="eventExport">
                     </CustomDataEvent>
                 </div>
-                <div class="add-button center text-subheading clickable" @click="addEvent()" >
+                <div class="add-button center text-normal clickable" @click="addEvent()" >
                     <img class="add-icon" src="./icons/icon_add.svg" />
                     Add Event
                 </div>

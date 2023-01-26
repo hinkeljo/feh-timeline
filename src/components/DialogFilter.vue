@@ -34,13 +34,13 @@
 <template>
     <div class="dialog_background">
         <div class="dialog_body">
-            <div class="dialog_header text-subheading">Select event categories to display:</div>
+            <div class="dialog_header text-normal">Select event categories to display:</div>
             <div>
                 <div v-for="category in filteredEventData" class="category-check">
                     <div 
                         :class="[ category.visible ? 'button_filter_active' : 'button_filter_inactive' ]"
                         @click="toggleFilter(category)">
-                        <div class="filter_label text-subheading">{{category.name}}</div>
+                        <div class="filter_label text-normal">{{category.name}}</div>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
         border-image: url('@/assets/background_dialog.png');
         border-image-width: auto auto;
         border-style: solid;
-        border-image-slice: 49% 49% fill;
+        border-image-slice: 99 350 fill;
 
         display: flex;
         flex-direction: column;
@@ -89,18 +89,29 @@
         padding: 12px 12px 12px 12px;
     }
 
-    .button_filter_active {
+    .button_filter_active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         border-image: url('@/assets/toggle_active.png');
         border-image-width: auto auto;
-        border-style: solid;
-        border-image-slice: 42 53 fill;
+        border-image-slice: 41 53 fill;
     }
 
-    .button_filter_inactive {
+    .button_filter_inactive::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         border-image: url('@/assets/toggle_inactive.png');
         border-image-width: auto auto;
         border-style: solid;
-        border-image-slice: 42 53 fill;
+        border-image-slice: 41 53 fill;
     }
 
     .filter_label {
