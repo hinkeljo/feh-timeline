@@ -78,7 +78,6 @@ function parseJsonData(): EventCategory[] {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
 
   .sand {
