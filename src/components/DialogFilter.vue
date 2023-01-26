@@ -4,6 +4,7 @@
     import { computed, ref } from '@vue/reactivity';
     import { onMounted } from 'vue';
     import {closeDialog} from 'vue3-promise-dialog'
+    import AppButtonGreen from './AppButtonGreen.vue';
 
     const props = defineProps<{
         eventdata: EventCategory[],
@@ -33,15 +34,17 @@
 <template>
     <div class="dialog_background">
         <div class="dialog_body">
-            <div v-for="category in filteredEventData" class="category-check">
-                <div 
-                    :class="[ category.visible ? 'button_filter_active' : 'button_filter_inactive' ]"
-                    @click="toggleFilter(category)">
-                    <div class="filter_label text-subheading">{{category.name}}</div>
+            <div class="dialog_header text-subheading">Select event categories to display:</div>
+            <div>
+                <div v-for="category in filteredEventData" class="category-check">
+                    <div 
+                        :class="[ category.visible ? 'button_filter_active' : 'button_filter_inactive' ]"
+                        @click="toggleFilter(category)">
+                        <div class="filter_label text-subheading">{{category.name}}</div>
+                    </div>
                 </div>
             </div>
-            <!--button @click="closeDialog(false)" class="btn">NO</button>
-            <button @click="closeDialog(true)" class="btn">YES</button-->
+            <AppButtonGreen label="Close" @click="closeDialog(true)"></AppButtonGreen>
         </div>
     </div>
 </template>
@@ -73,20 +76,31 @@
         border-image-width: auto auto;
         border-style: solid;
         border-image-slice: 49% 49% fill;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .dialog_header {
+        text-align: center;
+        padding: 12px 12px 12px 12px;
     }
 
     .button_filter_active {
         border-image: url('@/assets/toggle_active.png');
         border-image-width: auto auto;
         border-style: solid;
-        border-image-slice: 49% 49% fill;
+        border-image-slice: 42 53 fill;
     }
 
     .button_filter_inactive {
         border-image: url('@/assets/toggle_inactive.png');
         border-image-width: auto auto;
         border-style: solid;
-        border-image-slice: 49% 49% fill;
+        border-image-slice: 42 53 fill;
     }
 
     .filter_label {
