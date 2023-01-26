@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { Event } from "./classes/Event";
 import { EventData } from "./classes/EventData";
-import AppButton from "./components/AppButton.vue";
+import AppButton from "./components/AppButtonToday.vue";
 import AppTimeline from "./components/AppTimeline.vue";
 import ButtonPanel from "./components/ButtonPanel.vue";
 import AppHeader from "./components/AppHeader.vue";

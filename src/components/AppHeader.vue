@@ -30,7 +30,7 @@
                 <img class="owl" src="@/assets/feh.png" />
                 FEH Timeline
             </div>
-            <div class="right">
+            <!--div class="right">
                 <FilterMenu :eventdata="eventdata"/>
                 <div 
                 v-if="modalButtonCounter >= 5"
@@ -38,7 +38,7 @@
                 @click="openCreateMenu()">
                     Create data
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
     <CustomDataModal v-if="modalActive" @close="modalActive = false"/>

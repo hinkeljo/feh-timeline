@@ -61,8 +61,8 @@
     }
 
     .dialog_body {
-        width: fit-content;
-        height: fit-content;
+        width: max-content;
+        height: max-content;
         max-width: 95%;
         max-width: 95%;
 

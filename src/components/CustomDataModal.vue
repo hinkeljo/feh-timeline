@@ -2,7 +2,7 @@
     import { reactive } from "@vue/reactivity";
     import CustomDataEvent from "./CustomDataEvent.vue";
     import { Event } from '@/classes/Event';
-    import AppButton from "./AppButton.vue";
+    import AppButton from "./AppButtonToday.vue";
 import { EventExport } from "@/classes/EventExport";
 
     const eventExports: EventExport[] = reactive([]);
