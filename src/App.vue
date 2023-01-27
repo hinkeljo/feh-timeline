@@ -11,7 +11,7 @@ import AppHeader from "./components/AppHeader.vue";
 import json from "./assets/events.json";
 import { EventCategory } from "./classes/EventCategory";
 import { DialogWrapper } from 'vue3-promise-dialog';
-import { filter } from "./classes/DialogService";
+import { filter, showInfo } from "./classes/DialogService";
 
 const eventData: EventCategory[] = parseJsonData();
 
@@ -24,7 +24,10 @@ function scrollToCurrentDate() {
 
 async function openFilterMenu() {
   let result = await filter(eventData);
-  console.log(result);
+}
+
+async function showInfoDialog() {
+  let result = await showInfo();
 }
 
 function parseJsonData(): EventCategory[] {
@@ -63,7 +66,7 @@ function parseJsonData(): EventCategory[] {
     <ButtonPanel v-if="eventData.length > 0">
       <AppButtonFilter @click="openFilterMenu()"/>
       <AppButtonToday @click="scrollToCurrentDate()"/>
-      <AppButtonInfo @click=""/>
+      <!--AppButtonInfo @click="showInfoDialog()"/-->
     </ButtonPanel>
     <div v-if="eventData.length == 0" class="center">
       <img class="sand" src="./assets/sand.jpg"/>
