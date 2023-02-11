@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, computed, type ComputedRef, ref } from "vue";
+import { onMounted, computed, type ComputedRef, ref, type Ref } from "vue";
 import TimelineMonth from "./TimelineMonth.vue";
 import EventCard from "./EventCard.vue";
 import { EventData } from "@/classes/EventData";
@@ -7,6 +7,7 @@ import { RefreshService } from "@/classes/RefreshService";
 import DateIndicator from "./DateIndicator.vue";
 import { Month } from "@/classes/Month";
 import type { EventCategory } from "@/classes/EventCategory";
+import CustomDataModal from "./CustomDataModal.vue";
 
 const refreshKey = ref(0);
 
@@ -78,12 +79,24 @@ function scrollToCurrentDate(): void {
   };
   scrollElement!.scrollTo(scrollBehaviour);
 }
+
+let modalButtonCounter: Ref<number> = ref(0); 
+let modalActive: Ref<boolean> = ref(false);
+
+async function incrementModalCounter(): Promise<void> {
+    modalButtonCounter.value = modalButtonCounter.value + 1;
+    if(modalButtonCounter.value >= 5) {
+      modalActive.value = true; 
+      modalButtonCounter.value = 0; 
+    }
+}
+
 </script>
 
 <template>
   <div class="scroll-container-x" id="scrollContainerX">
     <div class="timeline-container">
-      <div class="timeline">
+      <div class="timeline" @click="incrementModalCounter()">
         <TimelineMonth
           v-for="month in months"
           :name="month.name"
@@ -106,6 +119,7 @@ function scrollToCurrentDate(): void {
       </div>
     </div>
   </div>
+  <CustomDataModal v-if="modalActive" @close="modalActive = false"/>
 </template>
 
 <style scoped>

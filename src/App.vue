@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
 import { Event } from "./classes/Event";
 import { EventData } from "./classes/EventData";
 import AppButtonToday from "./components/AppButtonToday.vue";
