@@ -3,8 +3,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "New Heroes Summoning Event",
-      "_start": 1681797600,
-      "_end": 1683612000,
+      "_start": 1681711200,
+      "_end": 1683525600,
       "_unkown_end": false
     }
   },
@@ -12,8 +12,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "New Heroes Summoning Event",
-      "_start": 1683698400,
-      "_end": 1684130400,
+      "_start": 1683612000,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -21,8 +21,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "Summoning Focus: Hall of Forms",
-      "_start": 1682402400,
-      "_end": 1684130400,
+      "_start": 1682316000,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -30,8 +30,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SHR: Childhood Encounter",
-      "_start": 1681624800,
-      "_end": 1682402400,
+      "_start": 1681538400,
+      "_end": 1682316000,
       "_unkown_end": false
     }
   },
@@ -39,8 +39,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SF: BHB",
-      "_start": 1682661600,
-      "_end": 1683266400,
+      "_start": 1682575200,
+      "_end": 1683180000,
       "_unkown_end": false
     }
   },
@@ -48,8 +48,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SHR: A Season for Picnics",
-      "_start": 1683439200,
-      "_end": 1684130400,
+      "_start": 1683352800,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -57,8 +57,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SF: New Power",
-      "_start": 1681279200,
-      "_end": 1681970400,
+      "_start": 1681192800,
+      "_end": 1681884000,
       "_unkown_end": false
     }
   },
@@ -66,8 +66,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SF: Draconic Aura",
-      "_start": 1682056800,
-      "_end": 1682920800,
+      "_start": 1681970400,
+      "_end": 1682834400,
       "_unkown_end": false
     }
   },
@@ -75,8 +75,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SF: Harsh Command+",
-      "_start": 1683007200,
-      "_end": 1683784800,
+      "_start": 1682920800,
+      "_end": 1683698400,
       "_unkown_end": false
     }
   },
@@ -84,8 +84,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "Double Special Heroes",
-      "_start": 1681452000,
-      "_end": 1682575200,
+      "_start": 1681365600,
+      "_end": 1682488800,
       "_unkown_end": false
     }
   },
@@ -93,8 +93,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "Mythic Hero Summoning Event",
-      "_start": 1682748000,
-      "_end": 1683871200,
+      "_start": 1682661600,
+      "_end": 1683784800,
       "_unkown_end": false
     }
   },
@@ -102,8 +102,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SHR: The Start of It All",
-      "_start": 1681970400,
-      "_end": 1682748000,
+      "_start": 1681884000,
+      "_end": 1682661600,
       "_unkown_end": false
     }
   },
@@ -111,8 +111,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "New Heroes Return",
-      "_start": 1683180000,
-      "_end": 1684130400,
+      "_start": 1683093600,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -120,8 +120,8 @@
     "_category": "Summoning Events",
     "_event": {
       "_name": "SHR: Unlikely Friends",
-      "_start": 1682575200,
-      "_end": 1683612000,
+      "_start": 1682488800,
+      "_end": 1683525600,
       "_unkown_end": false
     }
   },
@@ -129,8 +129,8 @@
     "_category": "Quests",
     "_event": {
       "_name": "Colorless Hostiles Quests",
-      "_start": 1681538400,
-      "_end": 1682661600,
+      "_start": 1681452000,
+      "_end": 1682575200,
       "_unkown_end": false
     }
   },
@@ -138,8 +138,8 @@
     "_category": "Quests",
     "_event": {
       "_name": "Sword Art Quests",
-      "_start": 1682920800,
-      "_end": 1684130400,
+      "_start": 1682834400,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -147,8 +147,8 @@
     "_category": "Login Bonuses",
     "_event": {
       "_name": "New Heroes Login Bonus",
-      "_start": 1681797600,
-      "_end": 1682834400,
+      "_start": 1681711200,
+      "_end": 1682748000,
       "_unkown_end": false
     }
   },
@@ -156,8 +156,8 @@
     "_category": "Login Bonuses",
     "_event": {
       "_name": "New Heroes Login Bonus",
-      "_start": 1683698400,
-      "_end": 1684130400,
+      "_start": 1683612000,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -165,34 +165,7 @@
     "_category": "Login Bonuses",
     "_event": {
       "_name": "Voting Gauntlet Login Bonus",
-      "_start": 1682748000,
-      "_end": 1683784800,
-      "_unkown_end": false
-    }
-  },
-  {
-    "_category": "Events",
-    "_event": {
-      "_name": "GHB",
-      "_start": 1681884000,
-      "_end": 1682575200,
-      "_unkown_end": false
-    }
-  },
-  {
-    "_category": "Events",
-    "_event": {
-      "_name": "BHB: Colm & Neimi",
       "_start": 1682661600,
-      "_end": 1683266400,
-      "_unkown_end": false
-    }
-  },
-  {
-    "_category": "Events",
-    "_event": {
-      "_name": "GHBR: Hilda",
-      "_start": 1683352800,
       "_end": 1683698400,
       "_unkown_end": false
     }
@@ -200,35 +173,26 @@
   {
     "_category": "Events",
     "_event": {
-      "_name": "Forging Bonds",
+      "_name": "GHB",
       "_start": 1681797600,
-      "_end": 1682920800,
+      "_end": 1682488800,
       "_unkown_end": false
     }
   },
   {
     "_category": "Events",
     "_event": {
-      "_name": "Lost Lore",
-      "_start": 1683784800,
-      "_end": 1684130400,
-      "_unkown_end": true
-    }
-  },
-  {
-    "_category": "Events",
-    "_event": {
-      "_name": "Heroes Journey",
-      "_start": 1682834400,
-      "_end": 1683093600,
+      "_name": "BHB: Colm & Neimi",
+      "_start": 1682575200,
+      "_end": 1683180000,
       "_unkown_end": false
     }
   },
   {
     "_category": "Events",
     "_event": {
-      "_name": "Voting Gauntlet",
-      "_start": 1683180000,
+      "_name": "GHBR: Hilda",
+      "_start": 1683266400,
       "_end": 1683612000,
       "_unkown_end": false
     }
@@ -237,8 +201,44 @@
     "_category": "Events",
     "_event": {
       "_name": "Forging Bonds",
+      "_start": 1681711200,
+      "_end": 1682834400,
+      "_unkown_end": false
+    }
+  },
+  {
+    "_category": "Events",
+    "_event": {
+      "_name": "Lost Lore",
       "_start": 1683698400,
-      "_end": 1684130400,
+      "_end": 1684044000,
+      "_unkown_end": true
+    }
+  },
+  {
+    "_category": "Events",
+    "_event": {
+      "_name": "Heroes Journey",
+      "_start": 1682748000,
+      "_end": 1683007200,
+      "_unkown_end": false
+    }
+  },
+  {
+    "_category": "Events",
+    "_event": {
+      "_name": "Voting Gauntlet",
+      "_start": 1683093600,
+      "_end": 1683525600,
+      "_unkown_end": false
+    }
+  },
+  {
+    "_category": "Events",
+    "_event": {
+      "_name": "Forging Bonds",
+      "_start": 1683612000,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -246,8 +246,8 @@
     "_category": "Events",
     "_event": {
       "_name": "SDS",
-      "_start": 1682056800,
-      "_end": 1682316000,
+      "_start": 1681970400,
+      "_end": 1682229600,
       "_unkown_end": false
     }
   },
@@ -255,8 +255,8 @@
     "_category": "Events",
     "_event": {
       "_name": "Hall of Forms",
-      "_start": 1682402400,
-      "_end": 1683525600,
+      "_start": 1682316000,
+      "_end": 1683439200,
       "_unkown_end": false
     }
   },
@@ -264,8 +264,8 @@
     "_category": "Events",
     "_event": {
       "_name": "GHB",
-      "_start": 1683784800,
-      "_end": 1684130400,
+      "_start": 1683698400,
+      "_end": 1684044000,
       "_unkown_end": true
     }
   },
@@ -273,8 +273,8 @@
     "_category": "Events",
     "_event": {
       "_name": "Mythic Hero Battle",
-      "_start": 1682748000,
-      "_end": 1683871200,
+      "_start": 1682661600,
+      "_end": 1683784800,
       "_unkown_end": false
     }
   },
@@ -282,8 +282,8 @@
     "_category": "Events",
     "_event": {
       "_name": "SDR",
-      "_start": 1683266400,
-      "_end": 1683525600,
+      "_start": 1683180000,
+      "_end": 1683439200,
       "_unkown_end": false
     }
   }
