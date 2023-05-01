@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { FehEventCategory } from '../interfaces/FehEventCategory';
 	import type { Month } from '../interfaces/Month';
 	import TimelineEvent from './TimelineEvent.svelte';
+	import { browser } from '$app/environment';
 
 	export let anchor_date: string;
 	export let months: Month[];
@@ -34,6 +36,14 @@
 		});
 		return rows_amount * (height_day + row_gap);
 	};
+
+	onMount(() => {
+		// scroll to current_offset
+		if(browser) {
+			let offset = current_offset() - window.innerWidth / 2;
+			window.scrollTo(offset, 0);
+		}
+	});
 </script>
 
 <div
