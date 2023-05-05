@@ -33,6 +33,6 @@
 		gap: 18px;
 		justify-content: space-between;
 		pointer-events: auto;
-		box-shadow: 8px 8px 1px 0px var(--dark);
+		box-shadow: 6px 6px 1px 0px var(--dark);
 	}
 </style>

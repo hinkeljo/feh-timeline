@@ -6,6 +6,7 @@
 	import { browser } from '$app/environment';
 	import { openModal } from 'svelte-modals';
 	import FilterModal from './TimelineFilterModal.svelte';
+	import Button from './Button.svelte';
 
 	export let anchor_date: string;
 	export let months: Month[];
@@ -65,7 +66,7 @@
 	<div class="timeline_header sticky">
 		<div class="row sticky">
 			<h1>Timeline</h1>
-			<button on:click={open_filter}>Filter</button>
+			<Button label="Filter" onClick={open_filter}></Button>
 		</div>
 		<div class="month_list">
 			{#each months as month}
@@ -114,14 +115,17 @@
 	.timeline_header {
 		top: 0px;
 		z-index: 4;
-		background-color: white;
+		background-color: var(--light);
 		width: fit-content;
 	}
 
 	.row {
 		display: flex;
 		flex-direction: row;
+		align-items: center;
 		width: fit-content;
+		padding-left: 12px;
+		gap: 24px;
 	}
 
 	h1 {
@@ -153,7 +157,7 @@
 	.day {
 		width: var(--width_day);
 		height: var(--width_day);
-		outline: 1px black solid;
+		outline: 1px var(--dark) solid;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -174,7 +178,7 @@
 		z-index: 1;
 		top: 0px;
 		width: 1px;
-		background-color: black;
+		background-color: var(--dark);
 	}
 
 	.current_time {

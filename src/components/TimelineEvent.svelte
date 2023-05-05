@@ -33,16 +33,17 @@
 		left: var(--event_offset);
 		width: var(--event_width);
 		height: var(--height_day);
-		background-color: white;
+		background-color: var(--light);
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		border-radius: 24px;
-		border: 5px black solid;
-		padding: 12px 0px;
+		border: 4px black solid;
+		padding: 8px 0px;
 		z-index: 2;
 		transition: transform 0.4s ease-in-out;
+
+		box-shadow: 4px 4px 1px 0px var(--dark);
 	}
 
 	.event:hover {
@@ -52,6 +53,7 @@
 
 	.event_label {
 		font-size: 1.5em;
-		padding: 0px 12px;
+		padding: 0px 8px;
+		color: var(--dark);
 	}
 </style>
