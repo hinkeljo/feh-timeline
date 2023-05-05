@@ -31,7 +31,7 @@
                 }}></Checkbox>
             {/each}
         </div>
-        <Button label="Close" onClick={close}></Button>
+        <Button onClick={close}>Close</Button>
     </ModalBody>
 {/if}
 

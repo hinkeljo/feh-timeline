@@ -66,7 +66,7 @@
 	<div class="timeline_header sticky">
 		<div class="row sticky">
 			<h1>Timeline</h1>
-			<Button label="Filter" onClick={open_filter}></Button>
+			<Button onClick={open_filter}>Filter</Button>
 		</div>
 		<div class="month_list">
 			{#each months as month}

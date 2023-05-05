@@ -17,7 +17,7 @@
 		<p>{event.expand.event_type.name}</p>
 		<p>Starts: {start}</p>
 		<p>Ends: {end}</p>
-		<Button label="OK" onClick={closeModal}></Button>
+		<Button onClick={closeModal}>OK</Button>
 	</ModalBody>
 {/if}
 
