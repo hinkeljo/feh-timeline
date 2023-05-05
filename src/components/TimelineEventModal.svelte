@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { closeModal } from 'svelte-modals';
-	import { fly } from 'svelte/transition';
 	import type { FehEvent } from '../interfaces/FehEvent';
 	import ModalBody from './ModalBody.svelte';
+	import Button from './Button.svelte';
 
 	export let isOpen: boolean;
 	export let event: FehEvent;
@@ -17,26 +17,12 @@
 		<p>{event.expand.event_type.name}</p>
 		<p>Starts: {start}</p>
 		<p>Ends: {end}</p>
-		<div class="actions">
-			<button on:click={closeModal}>OK</button>
-		</div>
+		<Button label="OK" onClick={closeModal}></Button>
 	</ModalBody>
 {/if}
 
 <style>
 	h2 {
-		text-align: center;
-		font-size: 24px;
-	}
-
-	p {
-		text-align: center;
-		margin-top: 16px;
-	}
-
-	.actions {
-		margin-top: 32px;
-		display: flex;
-		justify-content: flex-end;
-	}
+        text-align: center;
+    }
 </style>

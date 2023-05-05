@@ -37,10 +37,7 @@
 
 <style scoped>
     h2 {
-        all: unset;
         text-align: center;
-        font-size: 32px;
-        font-weight: bold;
     }
 
     .categories {
