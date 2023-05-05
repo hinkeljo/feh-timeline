@@ -2,7 +2,7 @@
 	import { fly } from "svelte/transition";
 </script>
 
-<div role="dialog" class="modal" transition:fly={{ y: 50 }} on:introstart on:outroend>
+<div role="dialog" class="modal" transition:fly={{ y: 100 }} on:introstart on:outroend>
     <div class="contents">
         <slot></slot>
     </div>
@@ -26,12 +26,13 @@
 
 	.contents {
 		min-width: 240px;
-		border-radius: 6px;
 		padding: 16px;
-		background: white;
+		background: var(--light);
 		display: flex;
 		flex-direction: column;
+		gap: 18px;
 		justify-content: space-between;
 		pointer-events: auto;
+		box-shadow: 8px 8px 1px 0px var(--dark);
 	}
 </style>

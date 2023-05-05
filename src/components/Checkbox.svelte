@@ -19,19 +19,24 @@
         all: unset;
         cursor: pointer;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
     }
 
     .checkbox {
-        width: 24px;
-        height: 24px;
-        border: 2px black solid;
-        border-radius: 4px;
-        background-color: white;
-        margin: 0px 12px;
+        width: 32px;
+        height: 32px;
+        border: 3px var(--dark) solid;
+        background-color: var(--light);
     }
 
     .checked {
-        background-color: black;
+        background-color: var(--dark);
+    }
+
+    .label {
+        font-size: 18px;
+        color: var(--dark);
     }
 </style>

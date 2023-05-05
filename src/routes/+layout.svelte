@@ -9,7 +9,17 @@
 	<div slot="backdrop" class="backdrop" transition:fade on:click={closeModal} />
 </Modals>
 
-<style scoped>
+<style>
+
+	:root {
+		--light: #FFFFFF; 
+		--dark: #000000;
+		--primary: #8B1874;
+		--secondary: #B71375;
+		--accent: #FC4F00;
+		--bright: #F79540; 
+	}
+
 	.backdrop {
 		position: fixed;
 		z-index: 9;

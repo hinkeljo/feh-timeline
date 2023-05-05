@@ -4,6 +4,7 @@
 	import type { FehEventCategory } from '../interfaces/FehEventCategory';
 	import ModalBody from './ModalBody.svelte';
 	import Checkbox from './Checkbox.svelte';
+	import Button from './Button.svelte';
 
 	export let isOpen: boolean;
     export let eventData: FehEventCategory[];
@@ -28,14 +29,23 @@
                 <Checkbox checked={category.shown} label={category.name} onChange={(checked) => {
                     onValueChange(category, checked);
                 }}></Checkbox>
-                <!--div class="category">
-                    <input type="checkbox" on:change={onValueChange}/>
-                    <div>{category.name}</div>
-                </div-->
             {/each}
         </div>
-        <button on:click={close}>Close</button>
+        <Button label="Close" onClick={close}></Button>
     </ModalBody>
 {/if}
 
-<style scoped></style>
+<style scoped>
+    h2 {
+        all: unset;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+</style>
