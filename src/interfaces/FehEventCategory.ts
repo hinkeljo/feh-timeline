@@ -6,4 +6,5 @@ export interface FehEventCategory {
 	description: string;
 	events: FehEvent[];
 	rows: FehEvent[][];
+	shown: boolean; 
 }

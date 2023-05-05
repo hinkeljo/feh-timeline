@@ -4,6 +4,8 @@
 	import type { Month } from '../interfaces/Month';
 	import TimelineEvent from './TimelineEvent.svelte';
 	import { browser } from '$app/environment';
+	import { openModal } from 'svelte-modals';
+	import FilterModal from './TimelineFilterModal.svelte';
 
 	export let anchor_date: string;
 	export let months: Month[];
@@ -37,6 +39,16 @@
 		return rows_amount * (height_day + row_gap);
 	};
 
+	function open_filter() {
+		openModal(FilterModal, {
+			eventData: event_data, 
+			onChange: () => {
+				// reassign array to trigger reactivity
+				event_data = [...event_data];
+			}
+		});
+	}
+
 	onMount(() => {
 		// scroll to current_offset
 		if(browser) {
@@ -51,7 +63,10 @@
 	style="--width_day: {width_day}px; --height_day: {height_day}px; --row_gap: {row_gap}px;"
 >
 	<div class="timeline_header sticky">
-		<h1 class="sticky">Timeline</h1>
+		<div class="row sticky">
+			<h1>Timeline</h1>
+			<button on:click={open_filter}>Filter</button>
+		</div>
 		<div class="month_list">
 			{#each months as month}
 				<div class="month">
@@ -77,13 +92,15 @@
 		<div class="current_time" style="left: {current_offset()}px; height: {timeline_height()}px;" />
 	</div>
 	{#each event_data as category}
-		{#each category.rows as row}
-			<div class="event_row">
-				{#each row as event, i}
-					<TimelineEvent {event} {anchor_date} {width_day} />
-				{/each}
-			</div>
-		{/each}
+		{#if category.shown}
+			{#each category.rows as row}
+				<div class="event_row">
+					{#each row as event, i}
+						<TimelineEvent {event} {anchor_date} {width_day} />
+					{/each}
+				</div>
+			{/each}
+		{/if}
 	{/each}
 </div>
 
@@ -98,6 +115,12 @@
 		top: 0px;
 		z-index: 4;
 		background-color: white;
+		width: fit-content;
+	}
+
+	.row {
+		display: flex;
+		flex-direction: row;
 		width: fit-content;
 	}
 

@@ -37,7 +37,8 @@ export function categorize_events(events: FehEvent[]): FehEventCategory[] {
 				name: event.expand.event_type.name,
 				description: event.expand.event_type.description,
 				events: [event],
-				rows: []
+				rows: [],
+				shown: true,
 			});
 		}
 	}
