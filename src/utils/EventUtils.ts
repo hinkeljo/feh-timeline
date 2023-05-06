@@ -36,6 +36,7 @@ export function categorize_events(events: FehEvent[]): FehEventCategory[] {
 				id: event.expand.event_type.id,
 				name: event.expand.event_type.name,
 				description: event.expand.event_type.description,
+				colour: event.expand.event_type.colour,
 				events: [event],
 				rows: [],
 				shown: true,

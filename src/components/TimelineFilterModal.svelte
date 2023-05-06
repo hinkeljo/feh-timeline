@@ -26,7 +26,7 @@
         <p>Choose which event categories to show.</p>
         <div class="categories">
             {#each eventData as category}
-                <Checkbox checked={category.shown} label={category.name} onChange={(checked) => {
+                <Checkbox checked={category.shown} label={category.name} colour={category.colour} onChange={(checked) => {
                     onValueChange(category, checked);
                 }}></Checkbox>
             {/each}
@@ -36,10 +36,6 @@
 {/if}
 
 <style scoped>
-    h2 {
-        text-align: center;
-    }
-
     .categories {
         display: flex;
         flex-direction: column;

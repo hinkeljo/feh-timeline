@@ -18,7 +18,8 @@
 	class="event"
 	style="
         --event_offset: {width_day * get_offset(event, anchor_date)}px;
-        --event_width: {width_day * get_duration(event)}px;"
+        --event_width: {width_day * get_duration(event)}px;
+		--event_type_colour: {event.expand.event_type.colour};"
 >
 	<div class="event_label sticky">{event.name}</div>
 </button>
@@ -33,7 +34,7 @@
 		left: var(--event_offset);
 		width: var(--event_width);
 		height: var(--height_day);
-		background-color: var(--light);
+		background-color: var(--event_type_colour);
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;

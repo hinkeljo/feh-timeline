@@ -2,6 +2,7 @@
     export let checked: boolean = false;
     export let onChange: (checked: boolean) => void;
     export let label: string; 
+    export let colour: string = '#000000';
 
     function onClick() {
         checked = !checked;
@@ -9,7 +10,7 @@
     }
 </script>
 
-<button on:click={onClick}>
+<button on:click={onClick} style="--checkbox_colour: {colour};">
     <div class="checkbox" class:checked={checked}></div>
     <div class="label">{label}</div>
 </button>
@@ -27,12 +28,12 @@
     .checkbox {
         width: 32px;
         height: 32px;
-        border: 3px var(--dark) solid;
+        border: 4px var(--dark) solid;
         background-color: var(--light);
     }
 
     .checked {
-        background-color: var(--dark);
+        background-color: var(--checkbox_colour);
     }
 
     .label {

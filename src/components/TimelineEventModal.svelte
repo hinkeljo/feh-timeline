@@ -21,8 +21,5 @@
 	</ModalBody>
 {/if}
 
-<style>
-	h2 {
-        text-align: center;
-    }
+<style scoped>
 </style>
