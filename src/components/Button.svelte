@@ -11,7 +11,7 @@
 		all: unset;
 		cursor: pointer;
 		box-sizing: border-box;
-		height: 45px;
+		height: 48px;
 		background-color: var(--light);
 		color: var(--dark);
 		font-size: 18px;

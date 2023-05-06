@@ -8,11 +8,15 @@
 	export let anchor_date: string;
 	export let width_day: number;
 
+	let card: HTMLElement;
+
 	function open_details() {
 		openModal(Modal, { event: event });
 	}
 
 	$: event_started = new Date().getTime() >= new Date(event.date_start).getTime();
+
+	$: event_ended = new Date().getTime() >= new Date(event.date_end).getTime();
 
 	$: time_to_start = () => {
 		const now = new Date().getTime();
@@ -34,9 +38,16 @@
 			}
 		} else return '';
 	};
+
+	$: show_chip = () => {
+		if(!card) return false; 
+		return card.offsetWidth >= width_day * 5
+
+	};
 </script>
 
 <button
+	bind:this={card}
 	on:click={open_details}
 	class="event"
 	style="
@@ -45,13 +56,13 @@
 		--event_type_colour: {event.expand.event_type.colour};"
 >
 	<div class="event_label sticky">
-		{#if !event_started}
+		{#if !event_started && show_chip()}
 			<div class="time_chip">{time_to_start()}</div>
 		{/if}
 		<div class="event_name">
 			{event.name}
 		</div>
-		{#if event_started}
+		{#if event_started && show_chip()}
 			<div class="time_chip">{time_to_start()}</div>
 		{/if}
 	</div>

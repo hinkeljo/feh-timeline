@@ -7,6 +7,7 @@
 	import { openModal } from 'svelte-modals';
 	import FilterModal from './TimelineFilterModal.svelte';
 	import Button from './Button.svelte';
+	import InfoButton from './InfoButton.svelte';
 
 	export let anchor_date: string;
 	export let months: Month[];
@@ -67,6 +68,7 @@
 		<div class="row sticky">
 			<h1>Timeline</h1>
 			<Button onClick={open_filter}>Filter</Button>
+			<InfoButton></InfoButton>
 		</div>
 		<div class="month_list">
 			{#each months as month}
