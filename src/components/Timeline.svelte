@@ -68,7 +68,6 @@
 		<div class="row sticky">
 			<h1>Timeline</h1>
 			<Button onClick={open_filter}>Filter</Button>
-			<InfoButton></InfoButton>
 		</div>
 		<div class="month_list">
 			{#each months as month}
@@ -105,6 +104,9 @@
 			{/each}
 		{/if}
 	{/each}
+</div>
+<div class="info_button">
+	<InfoButton />
 </div>
 
 <style scoped>
@@ -209,5 +211,12 @@
 	.event_row {
 		position: relative;
 		height: var(--width_day);
+	}
+
+	.info_button {
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		z-index: 5;
 	}
 </style>

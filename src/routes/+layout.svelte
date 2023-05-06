@@ -13,10 +13,6 @@
 	:root {
 		--light: #ffffff;
 		--dark: #000000;
-		--primary: #8b1874;
-		--secondary: #b71375;
-		--accent: #fc4f00;
-		--bright: #f79540;
 	}
 
 	.backdrop {

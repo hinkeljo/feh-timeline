@@ -1,9 +1,7 @@
 <script lang="ts">
-	import ModalBody from "./ModalBody.svelte";
+	import ModalBody from './ModalBody.svelte';
 
-    export let isOpen: boolean;
-
-
+	export let isOpen: boolean;
 </script>
 
 {#if isOpen}
@@ -13,5 +11,4 @@
 {/if}
 
 <style scoped>
-
 </style>

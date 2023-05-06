@@ -4,7 +4,7 @@
 	export let event: FehEvent;
 
 	$: start = new Date(event.date_start).toLocaleString('de-DE');
-	$: end = new Date(event.date_end).toLocaleString('de-DE');
+	$: end = event.end_unknown ? 'Unknown' : new Date(event.date_end).toLocaleString('de-DE');
 
 	let elapsed_percent = 0;
 

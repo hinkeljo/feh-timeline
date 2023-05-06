@@ -3,6 +3,7 @@
 	import { get_duration, get_offset } from '../utils/EventUtils';
 	import { openModal } from 'svelte-modals';
 	import Modal from './TimelineEventModal.svelte';
+	import { slide } from 'svelte/transition';
 
 	export let event: FehEvent;
 	export let anchor_date: string;
@@ -15,14 +16,13 @@
 	}
 
 	$: event_started = new Date().getTime() >= new Date(event.date_start).getTime();
-
 	$: event_ended = new Date().getTime() >= new Date(event.date_end).getTime();
 
 	$: time_to_start = () => {
 		const now = new Date().getTime();
 		const start = new Date(event.date_start).getTime();
 		const end = new Date(event.date_end).getTime();
-		if (now >= start && now <= end && event.end_unkown) return 'Unknown';
+		if (now >= start && now <= end && event.end_unknown) return '???';
 		let compare = 0;
 		if (now < start) compare = start;
 		else if (now < end) compare = end;
@@ -40,16 +40,33 @@
 	};
 
 	$: show_chip = () => {
-		if(!card) return false; 
-		return card.offsetWidth >= width_day * 5
-
+		if (!card) return false;
+		if (!event_started) return false;
+		if (event_ended) return false;
+		return card.offsetWidth >= width_day * 5;
 	};
+
+	let hovered = false;
 </script>
 
+{#if event.end_unknown}
+	<div
+		class="shadow"
+		class:hovered
+		style="
+	--width_day: {width_day}px;
+	--event_offset: {width_day * get_offset(event, anchor_date)}px;
+	--event_width: {width_day * get_duration(event)}px;
+	--event_type_colour: {event.expand.event_type.colour};"
+	/>
+{/if}
 <button
 	bind:this={card}
 	on:click={open_details}
+	on:mouseenter={() => (hovered = true)}
+	on:mouseleave={() => (hovered = false)}
 	class="event"
+	class:end_unknown={event.end_unknown}
 	style="
         --event_offset: {width_day * get_offset(event, anchor_date)}px;
         --event_width: {width_day * get_duration(event)}px;
@@ -57,13 +74,13 @@
 >
 	<div class="event_label sticky">
 		{#if !event_started && show_chip()}
-			<div class="time_chip">{time_to_start()}</div>
+			<div class="time_chip" transition:slide>{time_to_start()}</div>
 		{/if}
 		<div class="event_name">
-			{event.name}
+			{event.name_short == '' ? event.name : event.name_short}
 		</div>
 		{#if event_started && show_chip()}
-			<div class="time_chip">{time_to_start()}</div>
+			<div class="time_chip" transition:slide>{time_to_start()}</div>
 		{/if}
 	</div>
 </button>
@@ -83,17 +100,16 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		border: 4px black solid;
+		border: 4px var(--dark) solid;
 		padding: 8px 0px;
 		z-index: 2;
-		transition: transform 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
 
-		box-shadow: 4px 4px 1px 0px var(--dark);
+		box-shadow: 2px 2px 1px 0px var(--dark);
 	}
 
 	.event:hover {
-		transform: scale(1.025);
-		z-index: 3;
+		box-shadow: 4px 4px 1px 0px var(--dark);
 	}
 
 	.event_label {
@@ -117,5 +133,30 @@
 		font-size: 12px;
 		min-width: fit-content;
 		height: fit-content;
+	}
+
+	.end_unknown {
+		-webkit-mask-image: linear-gradient(to right, var(--event_type_colour) 75%, transparent 100%);
+		mask-image: linear-gradient(to right, var(--event_type_colour) 75%, transparent 100%);
+	}
+
+	.shadow {
+		all: unset;
+		box-sizing: border-box;
+		position: absolute;
+		top: calc(var(--width_day) - 2px);
+		left: calc(var(--event_offset) + 2px);
+		width: var(--event_width);
+		height: 4px;
+		z-index: 2;
+		background-color: var(--dark);
+		transition: all 0.4s ease-in-out;
+		-webkit-mask-image: linear-gradient(to right, var(--event_type_colour) 75%, transparent 100%);
+		mask-image: linear-gradient(to right, var(--event_type_colour) 75%, transparent 100%);
+	}
+
+	.shadow.hovered {
+		left: calc(var(--event_offset) + 4px);
+		height: 6px;
 	}
 </style>
