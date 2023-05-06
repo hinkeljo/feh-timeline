@@ -6,5 +6,5 @@ export interface FehEventType {
 	collectionName: string;
 	created: string;
 	updated: string;
-	colour: string; 
+	colour: string;
 }

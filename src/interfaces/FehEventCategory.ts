@@ -7,5 +7,5 @@ export interface FehEventCategory {
 	colour: string;
 	events: FehEvent[];
 	rows: FehEvent[][];
-	shown: boolean; 
+	shown: boolean;
 }

@@ -42,7 +42,7 @@
 
 	function open_filter() {
 		openModal(FilterModal, {
-			eventData: event_data, 
+			eventData: event_data,
 			onChange: () => {
 				// reassign array to trigger reactivity
 				event_data = [...event_data];
@@ -52,7 +52,7 @@
 
 	onMount(() => {
 		// scroll to current_offset
-		if(browser) {
+		if (browser) {
 			let offset = current_offset() - window.innerWidth / 2;
 			window.scrollTo(offset, 0);
 		}
@@ -71,7 +71,7 @@
 		<div class="month_list">
 			{#each months as month}
 				<div class="month">
-					<div class="month_label sticky">{month.name}</div>
+					<div class="month_label sticky"><h2>{month.name}</h2></div>
 					<div class="day_list">
 						{#each Array(month.days) as _, i}
 							<div class="day">
@@ -87,7 +87,7 @@
 		{#each Array(amount_days()) as _, i}
 			<div
 				class="day_separator"
-				style="left: {(i + 1) * width_day - 0.5}px; height: {timeline_height()}px;"
+				style="left: {(i + 1) * width_day - 1}px; height: {timeline_height()}px;"
 			/>
 		{/each}
 		<div class="current_time" style="left: {current_offset()}px; height: {timeline_height()}px;" />
@@ -96,7 +96,7 @@
 		{#if category.shown}
 			{#each category.rows as row}
 				<div class="event_row">
-					{#each row as event, i}
+					{#each row as event}
 						<TimelineEvent {event} {anchor_date} {width_day} />
 					{/each}
 				</div>
@@ -140,13 +140,18 @@
 	.month {
 		display: flex;
 		flex-direction: column;
+		height: calc(2 * var(--height_day));
 	}
 
 	.month_label {
+		height: var(--height_day);
 		font-size: 1.5em;
 		font-weight: bold;
 		width: fit-content;
-		padding: 12px 12px;
+		padding: 0px 12px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 	}
 
 	.day_list {
@@ -157,13 +162,21 @@
 	.day {
 		width: var(--width_day);
 		height: var(--width_day);
-		outline: 1px var(--dark) solid;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		position: relative;
 		z-index: 4;
+
+		border-top: 2px var(--dark) solid;
+		border-bottom: 2px var(--dark) solid;
+		border-left: 1px var(--dark) solid;
+		border-right: 1px var(--dark) solid;
+
+		font-size: 18px;
+		font-weight: bold;
+		color: var(--dark);
 	}
 
 	.day_separator_container {
@@ -177,7 +190,7 @@
 		position: absolute;
 		z-index: 1;
 		top: 0px;
-		width: 1px;
+		width: 2px;
 		background-color: var(--dark);
 	}
 

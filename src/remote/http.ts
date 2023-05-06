@@ -8,7 +8,9 @@ export async function http<T>(request: RequestInfo): Promise<HttpResponse<T>> {
 	try {
 		// may be an error if there is no body
 		response.parsedBody = await response.json();
-	} catch (ex) {}
+	} catch (ex) {
+		throw new Error('Error parsing response body');
+	}
 
 	if (!response.ok) {
 		throw new Error(response.statusText);

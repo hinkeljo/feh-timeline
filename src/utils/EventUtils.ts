@@ -26,9 +26,9 @@ export function get_offset(event: FehEvent, anchor: string) {
 
 export function categorize_events(events: FehEvent[]): FehEventCategory[] {
 	// sort events by category
-	let categories: FehEventCategory[] = [];
+	const categories: FehEventCategory[] = [];
 	for (const event of events) {
-		let category = categories.find((category) => category.id == event.expand.event_type.id);
+		const category = categories.find((category) => category.id == event.expand.event_type.id);
 		if (category) {
 			category.events.push(event);
 		} else {
@@ -39,7 +39,7 @@ export function categorize_events(events: FehEvent[]): FehEventCategory[] {
 				colour: event.expand.event_type.colour,
 				events: [event],
 				rows: [],
-				shown: true,
+				shown: true
 			});
 		}
 	}
@@ -64,7 +64,7 @@ export function sort_events(events: FehEvent[]): [FehEvent[]] {
 			// check if event can fit in an existing row
 			let foundRow = false;
 			for (const row of rows) {
-				let fitsInRow = fits_in_row(event, row);
+				const fitsInRow = fits_in_row(event, row);
 				if (fitsInRow) {
 					row.push(event);
 					foundRow = true;
@@ -110,15 +110,15 @@ export function get_first_month(events: FehEvent[]) {
 }
 
 export function get_months(events: FehEvent[]): Month[] {
-	let months: Month[] = [];
-	let earliest_event = events.sort(
+	const months: Month[] = [];
+	const earliest_event = events.sort(
 		(a, b) => new Date(a.date_start).valueOf() - new Date(b.date_start).valueOf()
 	)[0];
-	let latest_event = events.sort(
+	const latest_event = events.sort(
 		(a, b) => new Date(b.date_end).valueOf() - new Date(a.date_end).valueOf()
 	)[0];
-	let earliset_month = get_month(earliest_event, true);
-	let latest_month = get_month(latest_event, false);
+	const earliset_month = get_month(earliest_event, true);
+	const latest_month = get_month(latest_event, false);
 
 	// get all months between earliest and latest month
 	let current_month = earliset_month;

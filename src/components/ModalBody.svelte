@@ -1,15 +1,15 @@
 <script>
-	import { fly } from "svelte/transition";
+	import { fly } from 'svelte/transition';
 </script>
 
 <div role="dialog" class="modal" transition:fly={{ y: 100 }} on:introstart on:outroend>
-    <div class="contents">
-        <slot></slot>
-    </div>
+	<div class="contents">
+		<slot />
+	</div>
 </div>
 
 <style scoped>
-    .modal {
+	.modal {
 		position: fixed;
 		z-index: 10;
 		top: 0;
