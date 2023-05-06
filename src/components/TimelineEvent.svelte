@@ -11,6 +11,29 @@
 	function open_details() {
 		openModal(Modal, { event: event });
 	}
+
+	$: event_started = new Date().getTime() >= new Date(event.date_start).getTime();
+
+	$: time_to_start = () => {
+		const now = new Date().getTime();
+		const start = new Date(event.date_start).getTime();
+		const end = new Date(event.date_end).getTime();
+		if (now >= start && now <= end && event.end_unkown) return 'Unknown';
+		let compare = 0;
+		if (now < start) compare = start;
+		else if (now < end) compare = end;
+		if (compare != 0) {
+			let diff = compare - now;
+			let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+			let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+			if (days > 0) {
+				return `${days}D ${hours}H`;
+			} else {
+				return `${hours}H ${minutes}M `;
+			}
+		} else return '';
+	};
 </script>
 
 <button
@@ -21,7 +44,17 @@
         --event_width: {width_day * get_duration(event)}px;
 		--event_type_colour: {event.expand.event_type.colour};"
 >
-	<div class="event_label sticky">{event.name}</div>
+	<div class="event_label sticky">
+		{#if !event_started}
+			<div class="time_chip">{time_to_start()}</div>
+		{/if}
+		<div class="event_name">
+			{event.name}
+		</div>
+		{#if event_started}
+			<div class="time_chip">{time_to_start()}</div>
+		{/if}
+	</div>
 </button>
 
 <style scoped>
@@ -53,8 +86,25 @@
 	}
 
 	.event_label {
-		font-size: calc(var(--height_day) / 2);
 		padding: 0px 8px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.event_name {
 		color: var(--dark);
+		font-size: calc(var(--height_day) / 2);
+	}
+
+	.time_chip {
+		background-color: var(--light);
+		padding: 4px;
+		border: 3px solid var(--dark);
+		font-size: 12px;
+		min-width: fit-content;
+		height: fit-content;
 	}
 </style>

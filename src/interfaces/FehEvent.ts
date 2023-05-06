@@ -13,4 +13,5 @@ export interface FehEvent {
 	collectionName: string;
 	created: string;
 	updated: string;
+	end_unkown: boolean;
 }

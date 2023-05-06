@@ -11,7 +11,7 @@
 
 <style>
 	:root {
-		--light: #FFFFFF;
+		--light: #ffffff;
 		--dark: #000000;
 		--primary: #8b1874;
 		--secondary: #b71375;

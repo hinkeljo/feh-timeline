@@ -1,27 +1,46 @@
 <script lang="ts">
-	import type { FehEvent } from "../interfaces/FehEvent";
+	import type { FehEvent } from '../interfaces/FehEvent';
 
-    export let event: FehEvent;
+	export let event: FehEvent;
+
+	$: start = new Date(event.date_start).toLocaleString('de-DE');
+	$: end = new Date(event.date_end).toLocaleString('de-DE');
+
+	let elapsed_percent = 0;
+
+	function calculateElpasedTime() {
+		const elapsed =
+			(new Date().getTime() - new Date(event.date_start).getTime()) /
+			(new Date(event.date_end).getTime() - new Date(event.date_start).getTime());
+		elapsed_percent = elapsed * 100;
+	}
+
+	setTimeout(() => {
+		calculateElpasedTime();
+	}, 100);
 </script>
 
-<div class="row">
-    <div class="column">
-
-    </div>
-    to
-    <div class="column">
-
-    </div>
+<div class="column" style="--elapsed: {elapsed_percent}%">
+	<div class="row">
+		<p><b>Starts:</b></p>
+		<p>{start}</p>
+	</div>
+	<div class="row">
+		<p><b>Ends:</b></p>
+		<p>{end}</p>
+	</div>
 </div>
 
 <style scoped>
-    .row {
-        display: flex;
-        flex-direction: row;
-    }
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
 
-    .column {
-        display: flex;
-        flex-direction: column;
-    }
+	.row {
+		display: flex;
+		flex-direction: row;
+		gap: 4px;
+	}
 </style>
