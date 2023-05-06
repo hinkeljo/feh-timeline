@@ -26,6 +26,7 @@
 
 	.contents {
 		min-width: 240px;
+		max-width: 90vw;
 		padding: 16px;
 		background: var(--light);
 		display: flex;
