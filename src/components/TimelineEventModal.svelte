@@ -3,6 +3,7 @@
 	import type { FehEvent } from '../interfaces/FehEvent';
 	import ModalBody from './ModalBody.svelte';
 	import Button from './Button.svelte';
+	import EventTypeChip from './EventTypeChip.svelte';
 
 	export let isOpen: boolean;
 	export let event: FehEvent;
@@ -14,7 +15,7 @@
 {#if isOpen}
 	<ModalBody>
 		<h2>{event.name}</h2>
-		<p>{event.expand.event_type.name}</p>
+		<EventTypeChip event_type={event.expand.event_type}></EventTypeChip>
 		<p>Starts: {start}</p>
 		<p>Ends: {end}</p>
 		<Button onClick={closeModal}>OK</Button>

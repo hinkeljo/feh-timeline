@@ -53,7 +53,7 @@
 	}
 
 	.event_label {
-		font-size: 1.5em;
+		font-size: calc(var(--height_day) / 2);
 		padding: 0px 8px;
 		color: var(--dark);
 	}
