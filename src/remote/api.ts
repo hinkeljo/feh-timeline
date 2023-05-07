@@ -22,7 +22,7 @@ export async function fetchEvents(): Promise<FehEvent[]> {
 	}
 }
 
-export async function sendFeedback(name: string, message: string): Promise<boolean> {
+export async function sendFeedback(subject: string, message: string): Promise<boolean> {
 	const endpoint = 'collections/feedback/records';
 	const url = `${api_url}/${endpoint}`;
 
@@ -30,7 +30,7 @@ export async function sendFeedback(name: string, message: string): Promise<boole
 	headers.append('Content-Type', 'application/json');
 
 	var raw = JSON.stringify({
-		name: name,
+		subject: subject,
 		message: message
 	});
 

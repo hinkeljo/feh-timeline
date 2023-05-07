@@ -14,13 +14,13 @@
 		closeModal();
 	}
 
-	let name: string = '';
+	let subject: string = '';
 	let message: string = '';
 
-	$: valid = name.length > 0 && message.length > 0;
+	$: valid = subject.length > 0 && message.length > 0;
 
 	async function send() {
-		let success = await sendFeedback(name, message);
+		let success = await sendFeedback(subject, message);
 		if (success) {
 			openModal(SuccessModal, {});
 		} else {
@@ -34,8 +34,8 @@
 		<h2>Send Feedback</h2>
 		<p>If you spot an error, feel free to send me feedback and maybe I will correct it.</p>
 		<div class="input">
-			<h3>Name *</h3>
-			<input type="text" bind:value={name} />
+			<h3>Subject *</h3>
+			<input type="text" bind:value={subject} />
 		</div>
 		<div class="input">
 			<h3>Message *</h3>
