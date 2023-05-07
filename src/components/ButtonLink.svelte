@@ -1,14 +1,14 @@
 <script lang="ts">
-	export let onClick: () => void;
-	export let disabled = false; 
+    export let href: string;
+    export let inNewTab: boolean = false;
 </script>
 
-<button on:click={onClick} {disabled}>
+<a href={href} target={inNewTab ? "_blank" : "_self"}>
 	<slot />
-</button>
+</a>
 
 <style scoped>
-	button {
+	a {
 		all: unset;
 		cursor: pointer;
 		box-sizing: border-box;
@@ -23,12 +23,7 @@
 		transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
 	}
 
-	button:disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
-
-	button:hover {
+	a:hover {
 		background-color: var(--dark);
 		color: var(--light);
 	}

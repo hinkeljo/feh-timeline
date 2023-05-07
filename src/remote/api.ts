@@ -21,3 +21,31 @@ export async function fetchEvents(): Promise<FehEvent[]> {
 		throw new Error();
 	}
 }
+
+export async function sendFeedback(name: string, message: string): Promise<boolean> {
+	const endpoint = 'collections/feedback/records';
+	const url = `${api_url}/${endpoint}`;
+
+	var headers = new Headers();
+	headers.append("Content-Type", "application/json");
+
+	var raw = JSON.stringify({
+		"name": name,
+		"message": message
+	});
+
+	var requestOptions = {
+		method: 'POST',
+		headers: headers,
+		body: raw,
+	};
+
+	let response: HttpResponse<{ id: string }>;
+
+	try {
+		response = await http<{ id: string }>(new Request(url, requestOptions));
+		return true;
+	} catch (err) {
+		return false; 
+	}
+}

@@ -80,7 +80,7 @@
 >
 	<div class="timeline_header sticky" bind:this={header}>
 		<div class="row sticky">
-			<h1>Timeline</h1>
+			<h1>FEH Timeline</h1>
 			<Button onClick={open_filter}>Filter</Button>
 		</div>
 		<div class="month_list">

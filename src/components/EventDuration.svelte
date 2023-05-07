@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { FehEvent } from '../interfaces/FehEvent';
+	import { locale } from '../stores/stores';
 
 	export let event: FehEvent;
 
-	$: start = new Date(event.date_start).toLocaleString('de-DE');
-	$: end = event.end_unknown ? 'Unknown' : new Date(event.date_end).toLocaleString('de-DE');
+	$: start = new Date(event.date_start).toLocaleString($locale);
+	$: end = event.end_unknown ? 'Unknown' : new Date(event.date_end).toLocaleString($locale);
 
 	let elapsed_percent = 0;
 
@@ -15,9 +17,11 @@
 		elapsed_percent = elapsed * 100;
 	}
 
-	setTimeout(() => {
-		calculateElpasedTime();
-	}, 100);
+	onMount(() => {
+		setTimeout(() => {
+			calculateElpasedTime();
+		}, 100);
+	});
 </script>
 
 <div class="column" style="--elapsed: {elapsed_percent}%">
