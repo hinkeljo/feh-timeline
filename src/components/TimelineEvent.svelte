@@ -8,7 +8,7 @@
 	export let event: FehEvent;
 	export let anchor_date: string;
 	export let width_day: number;
-	export let has_immediate_followup: boolean = false;
+	export let has_immediate_followup = false;
 
 	let card: HTMLElement;
 

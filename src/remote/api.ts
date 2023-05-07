@@ -26,24 +26,22 @@ export async function sendFeedback(subject: string, message: string): Promise<bo
 	const endpoint = 'collections/feedback/records';
 	const url = `${api_url}/${endpoint}`;
 
-	var headers = new Headers();
+	const headers = new Headers();
 	headers.append('Content-Type', 'application/json');
 
-	var raw = JSON.stringify({
+	const raw = JSON.stringify({
 		subject: subject,
 		message: message
 	});
 
-	var requestOptions = {
+	const requestOptions = {
 		method: 'POST',
 		headers: headers,
 		body: raw
 	};
 
-	let response: HttpResponse<{ id: string }>;
-
 	try {
-		response = await http<{ id: string }>(new Request(url, requestOptions));
+		await http<{ id: string }>(new Request(url, requestOptions));
 		return true;
 	} catch (err) {
 		return false;

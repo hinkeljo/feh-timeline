@@ -45,8 +45,6 @@
 		return rows_amount * (height_day + row_gap);
 	};
 
-	$: timeline_header_height = header?.offsetHeight ?? 0;
-
 	function open_filter() {
 		openModal(FilterModal, {
 			eventData: event_data,

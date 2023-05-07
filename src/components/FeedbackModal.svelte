@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { closeModal, openModal } from 'svelte-modals';
 	import Button from './Button.svelte';
-	import ButtonLink from './ButtonLink.svelte';
-	import LocaleSelection from './LocaleSelection.svelte';
 	import ModalBody from './ModalBody.svelte';
 	import { sendFeedback } from '../remote/api';
 	import SuccessModal from './SuccessModal.svelte';
@@ -14,14 +12,14 @@
 		closeModal();
 	}
 
-	let subject: string = '';
-	let message: string = '';
+	let subject = '';
+	let message = '';
 
 	$: valid = subject.length > 0 && message.length > 0;
 
-	let sending = false; 
+	let sending = false;
 	async function send() {
-		if(sending) return;
+		if (sending) return;
 		sending = true;
 		let success = await sendFeedback(subject, message);
 		if (success) {
@@ -38,7 +36,8 @@
 	<ModalBody>
 		<h2>Send Feedback</h2>
 		<p>If you spot an error, feel free to send me feedback and maybe I will correct it.</p>
-		<div class="input">			<h3>Subject *</h3>
+		<div class="input">
+			<h3>Subject *</h3>
 			<input type="text" bind:value={subject} />
 		</div>
 		<div class="input">

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let href: string;
-	export let inNewTab: boolean = false;
+	export let inNewTab = false;
 </script>
 
 <a {href} target={inNewTab ? '_blank' : '_self'}>
