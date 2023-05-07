@@ -8,6 +8,7 @@
 	export let event: FehEvent;
 	export let anchor_date: string;
 	export let width_day: number;
+	export let has_immediate_followup: boolean = false;
 
 	let card: HTMLElement;
 
@@ -26,6 +27,7 @@
 		let compare = 0;
 		if (now < start) compare = start;
 		else if (now < end) compare = end;
+		//if(now >= end) return "It's over"
 		if (compare != 0) {
 			let diff = compare - now;
 			let days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -41,7 +43,6 @@
 
 	$: show_chip = () => {
 		if (!card) return false;
-		if (!event_started) return false;
 		if (event_ended) return false;
 		return card.offsetWidth >= width_day * 5;
 	};
@@ -52,7 +53,7 @@
 {#if event.end_unknown}
 	<div
 		class="shadow"
-		class:hovered
+		class:hovered={hovered}
 		style="
 	--width_day: {width_day}px;
 	--event_offset: {width_day * get_offset(event, anchor_date)}px;
@@ -66,7 +67,9 @@
 	on:mouseenter={() => (hovered = true)}
 	on:mouseleave={() => (hovered = false)}
 	class="event"
+	class:no_border_right={has_immediate_followup}
 	class:end_unknown={event.end_unknown}
+	class:its_over={event_ended}
 	style="
         --event_offset: {width_day * get_offset(event, anchor_date)}px;
         --event_width: {width_day * get_duration(event)}px;
@@ -133,6 +136,20 @@
 		font-size: 12px;
 		min-width: fit-content;
 		height: fit-content;
+	}
+
+	.its_over {
+		opacity: 0.9;
+		filter: grayscale(50%);
+	}
+
+	.its_over:hover {
+		opacity: 1;
+		filter: grayscale(0%);
+	}
+
+	.no_border_right {
+		border-right: none;
 	}
 
 	.end_unknown {

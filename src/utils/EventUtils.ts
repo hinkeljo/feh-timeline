@@ -39,7 +39,8 @@ export function categorize_events(events: FehEvent[]): FehEventCategory[] {
 				colour: event.expand.event_type.colour,
 				events: [event],
 				rows: [],
-				shown: true
+				shown: true,
+				priority: event.expand.event_type.priority
 			});
 		}
 	}
@@ -48,6 +49,9 @@ export function categorize_events(events: FehEvent[]): FehEventCategory[] {
 	for (const category of categories) {
 		category.rows = sort_events(category.events);
 	}
+
+	// sort categories by priority
+	categories.sort((a, b) => a.priority - b.priority);
 
 	return categories;
 }

@@ -7,4 +7,5 @@ export interface FehEventType {
 	created: string;
 	updated: string;
 	colour: string;
+	priority: number;
 }

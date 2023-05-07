@@ -5,6 +5,7 @@ export interface FehEventCategory {
 	name: string;
 	description: string;
 	colour: string;
+	priority: number;
 	events: FehEvent[];
 	rows: FehEvent[][];
 	shown: boolean;

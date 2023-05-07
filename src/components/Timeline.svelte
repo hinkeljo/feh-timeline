@@ -8,10 +8,13 @@
 	import FilterModal from './TimelineFilterModal.svelte';
 	import Button from './Button.svelte';
 	import InfoButton from './InfoButton.svelte';
+	import type { FehEvent } from '../interfaces/FehEvent';
 
 	export let anchor_date: string;
 	export let months: Month[];
 	export let event_data: FehEventCategory[];
+
+	let header: HTMLDivElement;
 
 	let width_day = 48;
 	let height_day = 48;
@@ -41,6 +44,8 @@
 		return rows_amount * (height_day + row_gap);
 	};
 
+	$: timeline_header_height = header?.offsetHeight ?? 0;
+
 	function open_filter() {
 		openModal(FilterModal, {
 			eventData: event_data,
@@ -49,6 +54,15 @@
 				event_data = [...event_data];
 			}
 		});
+	}
+
+	function has_immediate_followup(row: FehEvent[], event: FehEvent) {
+		// check if the next element in the row has the same start date as the events end date
+		let index = row.indexOf(event);
+		if (index < row.length - 1) {
+			let next_event = row[index + 1];
+			return next_event.date_start === event.date_end;
+		}
 	}
 
 	onMount(() => {
@@ -64,7 +78,7 @@
 	class="timeline"
 	style="--width_day: {width_day}px; --height_day: {height_day}px; --row_gap: {row_gap}px;"
 >
-	<div class="timeline_header sticky">
+	<div class="timeline_header sticky" bind:this={header}>
 		<div class="row sticky">
 			<h1>Timeline</h1>
 			<Button onClick={open_filter}>Filter</Button>
@@ -98,7 +112,7 @@
 			{#each category.rows as row}
 				<div class="event_row">
 					{#each row as event}
-						<TimelineEvent {event} {anchor_date} {width_day} />
+						<TimelineEvent {event} {anchor_date} {width_day} has_immediate_followup={has_immediate_followup(row, event)}/>
 					{/each}
 				</div>
 			{/each}
@@ -203,9 +217,9 @@
 		z-index: 4;
 		top: 0px;
 		left: 0px;
-		width: 3px;
+		width: 4px;
 		background-color: red;
-		transform: translateX(-1.5px);
+		transform: translateX(2px);
 	}
 
 	.event_row {
