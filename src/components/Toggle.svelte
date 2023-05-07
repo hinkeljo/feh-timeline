@@ -8,9 +8,9 @@
 		onChange(toggled);
 	}
 
-    export function setTo(state: boolean) {
-        toggled = state;
-    }
+	export function setTo(state: boolean) {
+		toggled = state;
+	}
 </script>
 
 <button on:click={toggle} class="toggle" class:toggled>
@@ -23,11 +23,11 @@
 		cursor: pointer;
 		display: flex;
 		flex-direction: column;
-        justify-content: center;
+		justify-content: center;
 		align-items: center;
 		gap: 12px;
 
-        transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
 	}
 
 	.toggle {
@@ -47,7 +47,7 @@
 		color: var(--dark);
 	}
 
-    .toggled > .label {
-        color: var(--light);
-    }
+	.toggled > .label {
+		color: var(--light);
+	}
 </style>

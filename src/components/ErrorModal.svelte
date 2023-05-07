@@ -13,7 +13,7 @@
 {#if isOpen}
 	<ModalBody>
 		<h2 class="error">Error</h2>
-		<p>Something went wrong. <br> Please try again later</p>
-        <Button onClick={close}>Ok</Button>
+		<p>Something went wrong. <br /> Please try again later</p>
+		<Button onClick={close}>Ok</Button>
 	</ModalBody>
 {/if}

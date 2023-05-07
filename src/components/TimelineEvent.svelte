@@ -53,7 +53,7 @@
 {#if event.end_unknown}
 	<div
 		class="shadow"
-		class:hovered={hovered}
+		class:hovered
 		style="
 	--width_day: {width_day}px;
 	--event_offset: {width_day * get_offset(event, anchor_date)}px;

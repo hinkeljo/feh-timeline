@@ -5,8 +5,8 @@
 	import LocaleSelection from './LocaleSelection.svelte';
 	import ModalBody from './ModalBody.svelte';
 	import { sendFeedback } from '../remote/api';
-    import SuccessModal from './SuccessModal.svelte';
-    import ErrorModal from './ErrorModal.svelte';
+	import SuccessModal from './SuccessModal.svelte';
+	import ErrorModal from './ErrorModal.svelte';
 
 	export let isOpen: boolean;
 
@@ -14,48 +14,49 @@
 		closeModal();
 	}
 
-    let name: string = "";
-    let message: string = "";
+	let name: string = '';
+	let message: string = '';
 
-    $: valid = name.length > 0 && message.length > 0;
+	$: valid = name.length > 0 && message.length > 0;
 
-    async function send() {
-        let success =  await sendFeedback(name, message);
-        if (success) {
-            openModal(SuccessModal, {});
-        } else {
-            openModal(ErrorModal, {});
-        }
-    }
+	async function send() {
+		let success = await sendFeedback(name, message);
+		if (success) {
+			openModal(SuccessModal, {});
+		} else {
+			openModal(ErrorModal, {});
+		}
+	}
 </script>
 
 {#if isOpen}
 	<ModalBody>
 		<h2>Send Feedback</h2>
-        <p>If you spot an error, feel free to send me feedback and maybe I will correct it.</p>
-        <div class="input">
-            <h3>Name *</h3>
-            <input type="text" bind:value={name}/>
-        </div>
-        <div class="input">
-            <h3>Message *</h3>
-            <textarea bind:value={message}></textarea>
-        </div>
+		<p>If you spot an error, feel free to send me feedback and maybe I will correct it.</p>
+		<div class="input">
+			<h3>Name *</h3>
+			<input type="text" bind:value={name} />
+		</div>
+		<div class="input">
+			<h3>Message *</h3>
+			<textarea bind:value={message} />
+		</div>
 		<Button onClick={send} disabled={!valid}>Send</Button>
-        <Button onClick={close}>Cancel</Button>
+		<Button onClick={close}>Cancel</Button>
 	</ModalBody>
 {/if}
 
 <style scoped>
-    .input {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
+	.input {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
 
-    input, textarea {
-        all: unset;
-        border: 4px var(--dark) solid;
-        padding: 4px;
-    }
+	input,
+	textarea {
+		all: unset;
+		border: 4px var(--dark) solid;
+		padding: 4px;
+	}
 </style>

@@ -1,9 +1,9 @@
 <script lang="ts">
-    export let href: string;
-    export let inNewTab: boolean = false;
+	export let href: string;
+	export let inNewTab: boolean = false;
 </script>
 
-<a href={href} target={inNewTab ? "_blank" : "_self"}>
+<a {href} target={inNewTab ? '_blank' : '_self'}>
 	<slot />
 </a>
 

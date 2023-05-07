@@ -9,16 +9,17 @@
 	export let isOpen: boolean;
 
 	function openFeedback() {
-		openModal(Modal, {})
+		openModal(Modal, {});
 	}
 </script>
 
 {#if isOpen}
 	<ModalBody>
 		<h2>About</h2>
-		<LocaleSelection></LocaleSelection>
+		<LocaleSelection />
 		<Button onClick={openFeedback}>Feedback</Button>
-		<ButtonLink href={"https://github.com/hinkeljo/feh-timeline"} inNewTab={true}>GitHub</ButtonLink>
+		<ButtonLink href={'https://github.com/hinkeljo/feh-timeline'} inNewTab={true}>GitHub</ButtonLink
+		>
 	</ModalBody>
 {/if}
 

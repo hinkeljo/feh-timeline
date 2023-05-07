@@ -13,6 +13,6 @@
 {#if isOpen}
 	<ModalBody>
 		<h2>Success</h2>
-        <Button onClick={close}>Ok</Button>
+		<Button onClick={close}>Ok</Button>
 	</ModalBody>
 {/if}

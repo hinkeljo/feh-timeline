@@ -27,17 +27,17 @@ export async function sendFeedback(name: string, message: string): Promise<boole
 	const url = `${api_url}/${endpoint}`;
 
 	var headers = new Headers();
-	headers.append("Content-Type", "application/json");
+	headers.append('Content-Type', 'application/json');
 
 	var raw = JSON.stringify({
-		"name": name,
-		"message": message
+		name: name,
+		message: message
 	});
 
 	var requestOptions = {
 		method: 'POST',
 		headers: headers,
-		body: raw,
+		body: raw
 	};
 
 	let response: HttpResponse<{ id: string }>;
@@ -46,6 +46,6 @@ export async function sendFeedback(name: string, message: string): Promise<boole
 		response = await http<{ id: string }>(new Request(url, requestOptions));
 		return true;
 	} catch (err) {
-		return false; 
+		return false;
 	}
 }

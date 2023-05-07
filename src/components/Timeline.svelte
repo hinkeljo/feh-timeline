@@ -112,7 +112,12 @@
 			{#each category.rows as row}
 				<div class="event_row" transition:fly={{ x: 100 }}>
 					{#each row as event}
-						<TimelineEvent {event} {anchor_date} {width_day} has_immediate_followup={has_immediate_followup(row, event)}/>
+						<TimelineEvent
+							{event}
+							{anchor_date}
+							{width_day}
+							has_immediate_followup={has_immediate_followup(row, event)}
+						/>
 					{/each}
 				</div>
 			{/each}
