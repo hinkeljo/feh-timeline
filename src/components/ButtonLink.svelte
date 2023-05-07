@@ -19,12 +19,14 @@
 		padding: 8px 20px;
 		text-align: center;
 		border: 4px var(--dark) solid;
+		box-shadow: 2px 2px 1px 0px var(--dark);
 
-		transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
 	}
 
 	a:hover {
 		background-color: var(--dark);
 		color: var(--light);
+		box-shadow: 4px 4px 1px 0px var(--dark);
 	}
 </style>

@@ -77,13 +77,13 @@
 >
 	<div class="event_label sticky">
 		{#if !event_started && show_chip()}
-			<div class="time_chip" transition:slide>{time_to_start()}</div>
+			<div class="time_chip" transition:slide|local>{time_to_start()}</div>
 		{/if}
 		<div class="event_name">
 			{event.name_short == '' ? event.name : event.name_short}
 		</div>
 		{#if event_started && show_chip()}
-			<div class="time_chip" transition:slide>{time_to_start()}</div>
+			<div class="time_chip" transition:slide|local>{time_to_start()}</div>
 		{/if}
 	</div>
 </button>

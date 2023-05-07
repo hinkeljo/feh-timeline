@@ -9,6 +9,7 @@
 	import Button from './Button.svelte';
 	import InfoButton from './InfoButton.svelte';
 	import type { FehEvent } from '../interfaces/FehEvent';
+	import { fly } from 'svelte/transition';
 
 	export let anchor_date: string;
 	export let months: Month[];
@@ -81,7 +82,6 @@
 	<div class="timeline_header sticky" bind:this={header}>
 		<div class="row sticky">
 			<h1>FEH Timeline</h1>
-			<Button onClick={open_filter}>Filter</Button>
 		</div>
 		<div class="month_list">
 			{#each months as month}
@@ -110,7 +110,7 @@
 	{#each event_data as category}
 		{#if category.shown}
 			{#each category.rows as row}
-				<div class="event_row">
+				<div class="event_row" transition:fly={{ x: 100 }}>
 					{#each row as event}
 						<TimelineEvent {event} {anchor_date} {width_day} has_immediate_followup={has_immediate_followup(row, event)}/>
 					{/each}
@@ -119,7 +119,8 @@
 		{/if}
 	{/each}
 </div>
-<div class="info_button">
+<div class="button_bar">
+	<Button onClick={open_filter}>Filter</Button>
 	<InfoButton />
 </div>
 
@@ -128,6 +129,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--row_gap);
+		margin-bottom: calc(var(--height_day) * 2);
+		border-bottom: 2px var(--dark) solid;
+		width: fit-content;
 	}
 
 	.timeline_header {
@@ -227,10 +231,13 @@
 		height: var(--width_day);
 	}
 
-	.info_button {
+	.button_bar {
 		position: fixed;
 		bottom: 24px;
 		right: 24px;
 		z-index: 5;
+		display: flex;
+		flex-direction: row;
+		gap: 12px;
 	}
 </style>

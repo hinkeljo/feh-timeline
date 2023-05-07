@@ -23,7 +23,7 @@
 <slot />
 <Modals>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div slot="backdrop" class="backdrop" transition:fade on:click={closeModal} />
+	<div slot="backdrop" class="backdrop" transition:fade|local on:click={closeModal} />
 </Modals>
 
 <style>
