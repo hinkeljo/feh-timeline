@@ -3,7 +3,6 @@ import { categorize_events, get_first_month, get_months } from '../utils/EventUt
 
 export const prerender = true;
 
-/** @type {import('./$types').PageServerLoad} */
 export async function load() {
 	const events = await fetchEvents();
 
