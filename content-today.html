@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.ico" />
+		<title>FEH Timeline</title>
+		<meta
+			name="description"
+			content="A timeline showing the events for the Fire Emblem Heroes game."
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link href="./_app/immutable/assets/_layout.6d92169b.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_page.a8862205.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/api.fab29963.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.4d4b5e0f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.a9313273.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.65359468.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.9dea592e.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.eaf449bb.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_layout.svelte.ec5e30d0.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.2b681d38.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/content-today-page.svelte.3bd37966.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/api.8ee997d9.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+<div class="scroll svelte-lufehp"><div class="content svelte-lufehp">
+			<img class="feh svelte-lufehp" src="/feh-timeline/_app/immutable/assets/feh.b18ea270.webp" alt="Feh, the messenger owl">
+		</div>
+</div>
+
+
+
+  
+
+
+
+			
+			<script>
+				{
+					__sveltekit_1gdzwk1 = {
+						assets: "/feh-timeline",
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,{"type":"data","data":null,"uses":{}}];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.4d4b5e0f.js"),
+						import("./_app/immutable/entry/app.eaf449bb.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		transition: all 0.4s ease-in-out;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	h1 {
+		all: unset;
+		font-size: 48px;
+		font-weight: bold;
+		color: var(--dark);
+	}
+
+	h2 {
+		all: unset;
+		font-size: 32px;
+		font-weight: bold;
+		color: var(--dark);
+	}
+
+	.sticky {
+		position: -webkit-sticky;
+		position: sticky;
+		left: 0;
+	}
+
+	.dark {
+		color: var(--dark);
+	}
+
+	.light {
+		color: var(--light);
+	}
+
+	.no-bold {
+		font-weight: normal;
+	}
+
+	@media screen and (max-width: 799px) {
+		h1 {
+			font-size: 32px;
+		}
+
+		h2 {
+			font-size: 24px;
+		}
+	}
+</style>
